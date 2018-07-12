@@ -4,4 +4,10 @@
     <string name="attendance">Attendance</string>
     <string name="message">Message</string>
     <string name="profile">Profile</string>
+    <string name="notice">Notice</string>
+    <string name="holiday_calendar">Holiday Calendar</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="about">About</string>
+    <string name="gallery">Gallery</string>
+    <string name="notification">Notification</string>
 </resources>

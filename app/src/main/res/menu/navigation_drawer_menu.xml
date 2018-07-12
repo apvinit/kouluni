@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+
+        <item android:id="@+id/notice" android:title="@string/notice"
+            android:checked="true"
+            android:icon="@drawable/notices"/>
+
+        <item android:id="@+id/holiday_calendar" android:title="@string/holiday_calendar"
+            android:icon="@drawable/holiday_calendar" />
+
+        <item android:id="@+id/contact_us" android:title="@string/contact_us"
+            android:icon="@drawable/contact"/>
+
+        <item android:id="@+id/about" android:title="@string/about"
+            android:icon="@drawable/about"/>
+
+        <item android:id="@+id/gallery" android:title="@string/gallery"
+            android:icon="@drawable/gallery"/>
+    </group>
+</menu>
