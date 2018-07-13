@@ -10,4 +10,10 @@
     <string name="about">About</string>
     <string name="gallery">Gallery</string>
     <string name="notification">Notification</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="s_b_p_vidya_vihar_sirsa_katihar">S.B.P Vidya Vihar Sirsa Katihar</string>
+    <string name="know_more">KNOW MORE</string>
+    <string name="school_logo">School Logo</string>
 </resources>
