@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import xyz.redbooks.koulini.ui.ContactUsFragment;
 import xyz.redbooks.koulini.ui.HomeFragment;
 import xyz.redbooks.koulini.ui.LoginFragment;
+import xyz.redbooks.koulini.ui.ParentMessageFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -68,8 +69,8 @@ public class MainActivity extends AppCompatActivity {
         fragment = fm.findFragmentById(R.id.fragment_container);
 
         if(fragment == null){
-            fragment = new HomeFragment();
-//            fragment = new ContactUsFragment();
+//            fragment = new HomeFragment();
+            fragment = new ParentMessageFragment();
             fm.beginTransaction().add(R.id.fragment_container, fragment).commit();
         }
 

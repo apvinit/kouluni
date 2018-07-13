@@ -27,4 +27,7 @@
     <string name="submit">Submit</string>
     <string name="or">OR</string>
     <string name="call">CALL</string>
+    <string name="parent_message_heading_string">Important : Pupil passed the test</string>
+    <string name="parent_message_body_string">Your ward passed all the examination with distinction, some other important text to be told</string>
+    <string name="parent_message_date_string">12 Jan 2018</string>
 </resources>
