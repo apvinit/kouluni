@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import xyz.redbooks.koulini.ui.ContactUsFragment;
 import xyz.redbooks.koulini.ui.HomeFragment;
 import xyz.redbooks.koulini.ui.LoginFragment;
 
@@ -53,6 +54,11 @@ public class MainActivity extends AppCompatActivity {
 
                     // Add code here to update the UI based on the item selected
                     // For example, swap UI fragments here
+                    switch (menuItem.getItemId()){
+                        case R.id.contact_us :
+                            fragment = new ContactUsFragment();
+                            fm.beginTransaction().replace(R.id.fragment_container, fragment).commit();
+                    }
 
                     return true;
                 }
@@ -62,8 +68,8 @@ public class MainActivity extends AppCompatActivity {
         fragment = fm.findFragmentById(R.id.fragment_container);
 
         if(fragment == null){
-//            fragment = new HomeFragment();
-            fragment = new LoginFragment();
+            fragment = new HomeFragment();
+//            fragment = new ContactUsFragment();
             fm.beginTransaction().add(R.id.fragment_container, fragment).commit();
         }
 
