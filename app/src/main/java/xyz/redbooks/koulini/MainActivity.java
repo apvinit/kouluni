@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import xyz.redbooks.koulini.ui.HomeFragment;
+import xyz.redbooks.koulini.ui.LoginFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -61,7 +62,8 @@ public class MainActivity extends AppCompatActivity {
         fragment = fm.findFragmentById(R.id.fragment_container);
 
         if(fragment == null){
-            fragment = new HomeFragment();
+//            fragment = new HomeFragment();
+            fragment = new LoginFragment();
             fm.beginTransaction().add(R.id.fragment_container, fragment).commit();
         }
 
