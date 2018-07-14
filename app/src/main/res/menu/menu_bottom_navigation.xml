@@ -2,20 +2,20 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/btn_home"
+    <item android:id="@+id/menu_btm_home"
         android:icon="@drawable/home"
         android:title="@string/home" />
 
-    <item android:id="@+id/btn_attendance"
+    <item android:id="@+id/menu_btm_attendance"
         android:icon="@drawable/attendance"
         android:title="@string/attendance" />
 
-    <item android:id="@+id/btn_parent_message"
+    <item android:id="@+id/menu_btm_parent_message"
         android:icon="@drawable/message"
         app:showAsAction="withText"
         android:title="@string/message" />
 
-    <item android:id="@+id/btn_profile"
+    <item android:id="@+id/menu_btm_profile"
         android:icon="@drawable/profile"
         android:title="@string/profile" />
 

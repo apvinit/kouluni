@@ -13,8 +13,10 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import xyz.redbooks.koulini.ui.ContactUsFragment;
+import xyz.redbooks.koulini.ui.HomeFragment;
 import xyz.redbooks.koulini.ui.NoticeFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -54,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                     // Add code here to update the UI based on the item selected
                     // For example, swap UI fragments here
                     switch (menuItem.getItemId()){
-                        case R.id.contact_us :
+                        case R.id.menu_nd_contact_us :
                             fragment = new ContactUsFragment();
                             fm.beginTransaction().replace(R.id.fragment_container, fragment).commit();
                     }
@@ -67,8 +69,8 @@ public class MainActivity extends AppCompatActivity {
         fragment = fm.findFragmentById(R.id.fragment_container);
 
         if(fragment == null){
-//            fragment = new HomeFragment();
-            fragment = new NoticeFragment();
+            fragment = new HomeFragment();
+//            fragment = new NoticeFragment();
             fm.beginTransaction().add(R.id.fragment_container, fragment).commit();
         }
 
@@ -88,7 +90,12 @@ public class MainActivity extends AppCompatActivity {
             case android.R.id.home:
                 drawerLayout.openDrawer(GravityCompat.START);
                 return true;
+            case R.id.menu_main_notification :
+                Toast.makeText(this, "Notification", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
+
     }
 }

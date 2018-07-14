@@ -4,7 +4,7 @@
     tools:context=".MainActivity"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/notification"
+    <item android:id="@+id/menu_main_notification"
         android:title="@string/notification"
         android:icon="@drawable/notification"
         app:showAsAction="always" />
