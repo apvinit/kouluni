@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import xyz.redbooks.koulini.ui.ContactUsFragment;
+import xyz.redbooks.koulini.ui.HolidayCalendarFragment;
 import xyz.redbooks.koulini.ui.HomeFragment;
 import xyz.redbooks.koulini.ui.LoginFragment;
 import xyz.redbooks.koulini.ui.ParentMessageFragment;
@@ -70,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(fragment == null){
 //            fragment = new HomeFragment();
-            fragment = new ParentMessageFragment();
+            fragment = new HolidayCalendarFragment();
             fm.beginTransaction().add(R.id.fragment_container, fragment).commit();
         }
 

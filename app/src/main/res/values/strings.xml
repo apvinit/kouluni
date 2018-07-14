@@ -30,4 +30,7 @@
     <string name="parent_message_heading_string">Important : Pupil passed the test</string>
     <string name="parent_message_body_string">Your ward passed all the examination with distinction, some other important text to be told</string>
     <string name="parent_message_date_string">12 Jan 2018</string>
+    <string name="holiday_date_string">25 December</string>
+    <string name="holiday_description_string">Christmas Day</string>
+    <string name="dummy_text">Lorem Ipsum Dolor site amemy. This is dummuy string. Yes This is demo string. This is meant to be just a placeholder for some text</string>
 </resources>
