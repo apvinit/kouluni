@@ -15,10 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import xyz.redbooks.koulini.ui.ContactUsFragment;
-import xyz.redbooks.koulini.ui.HolidayCalendarFragment;
-import xyz.redbooks.koulini.ui.HomeFragment;
-import xyz.redbooks.koulini.ui.LoginFragment;
-import xyz.redbooks.koulini.ui.ParentMessageFragment;
+import xyz.redbooks.koulini.ui.NoticeFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -71,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(fragment == null){
 //            fragment = new HomeFragment();
-            fragment = new HolidayCalendarFragment();
+            fragment = new NoticeFragment();
             fm.beginTransaction().add(R.id.fragment_container, fragment).commit();
         }
 
@@ -81,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 

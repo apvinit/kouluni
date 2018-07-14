@@ -7,8 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import xyz.redbooks.koulini.R;
 
 public class HolidayCalendarAdapter extends RecyclerView.Adapter<HolidayCalendarAdapter.HolidayCalendarViewHolder> {
@@ -16,7 +14,7 @@ public class HolidayCalendarAdapter extends RecyclerView.Adapter<HolidayCalendar
     @NonNull
     @Override
     public HolidayCalendarViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.holiday_calendar_item,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_holiday_calendar,parent,false);
         return new HolidayCalendarViewHolder(view);
     }
 

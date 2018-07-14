@@ -14,7 +14,7 @@ public class ParentMessageAdapter extends RecyclerView.Adapter<ParentMessageAdap
     @NonNull
     @Override
     public ParentMessageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.parent_message_card, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_parent_message, parent, false);
         return new ParentMessageViewHolder(view);
     }
 
