@@ -22,6 +22,7 @@ import xyz.redbooks.koulini.ui.GalleryFragment;
 import xyz.redbooks.koulini.ui.HolidayCalendarFragment;
 import xyz.redbooks.koulini.ui.HomeFragment;
 import xyz.redbooks.koulini.ui.NoticeFragment;
+import xyz.redbooks.koulini.ui.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -108,8 +109,10 @@ public class MainActivity extends AppCompatActivity {
         fragment = fm.findFragmentById(R.id.fragment_container);
 
         if(fragment == null){
-            fragment = new HomeFragment();
+//            fragment = new HomeFragment();
+            fragment = new ProfileFragment();
             fm.beginTransaction().add(R.id.fragment_container, fragment).commit();
+
         }
 
 

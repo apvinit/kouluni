@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.ProfileFragment">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/std_image_profile"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/profile"
+            app:layout_constraintBottom_toTopOf="@+id/card_PersonalInfo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_PersonalInfo"
+            style="@style/CardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/card_reportCard"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/std_image_profile">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtPersonalInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:text="@string/personal_info_string"
+                    app:layout_constraintBottom_toTopOf="@+id/txt_name"
+                    app:layout_constraintEnd_toStartOf="@+id/std_name"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
+                    android:id="@+id/txt_name"
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="@string/name_string"
+                    app:layout_constraintBottom_toTopOf="@+id/txt_father_name"
+                    app:layout_constraintEnd_toStartOf="@+id/std_name"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtPersonalInfo" />
+
+                <TextView
+                    android:id="@+id/std_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="Vinit Kumar"
+                    app:layout_constraintBottom_toTopOf="@+id/std_mobileNo"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/txt_name"
+                    app:layout_constraintTop_toBottomOf="@id/txtPersonalInfo" />
+
+
+                <TextView
+                    android:id="@+id/txt_father_name"
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="Father's Name"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/std_mobileNo"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/std_father_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="B. K. Das"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txt_mobile_no"
+                    app:layout_constraintTop_toBottomOf="@+id/std_class" />
+
+                <TextView
+                    android:id="@+id/txt_mother_name"
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="Mother's Name"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/std_mother_name"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/std_mother_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="A. Das"
+                    app:layout_constraintBottom_toTopOf="@+id/std_age"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txt_mother_name"
+                    app:layout_constraintTop_toBottomOf="@+id/std_mobileNo" />
+
+                <TextView
+                    android:id="@+id/txt_class"
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="Class"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/std_class"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/std_class"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="12"
+                    app:layout_constraintBottom_toTopOf="@+id/std_father_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txt_class"
+                    app:layout_constraintTop_toBottomOf="@+id/std_age" />
+
+                <TextView
+                    android:id="@+id/txt_age"
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="Age"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/std_age"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/std_age"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="16"
+                    app:layout_constraintBottom_toTopOf="@+id/std_class"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txt_age"
+                    app:layout_constraintTop_toBottomOf="@+id/std_mother_name" />
+
+                <TextView
+                    android:id="@+id/txt_mobile_no"
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="Mobile No"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/std_father_name"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/std_mobileNo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="B. K. Das"
+                    app:layout_constraintBottom_toTopOf="@+id/std_mother_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txt_father_name"
+                    app:layout_constraintTop_toBottomOf="@+id/std_name" />
+
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_reportCard"
+            style="@style/CardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/card_syllabus"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_PersonalInfo">
+
+            <TextView
+                android:id="@+id/txt_reportCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="Report Card" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_syllabus"
+            style="@style/CardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/card_timeTable"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_reportCard">
+
+            <TextView
+                android:id="@+id/txt_syllabus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="Syllabus" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_timeTable"
+            style="@style/CardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/card_feeStatus"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_syllabus">
+
+            <TextView
+                android:id="@+id/txt_timeTable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="Time Table" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_feeStatus"
+            style="@style/CardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_timeTable">
+
+            <TextView
+                android:id="@+id/txt_feeStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="Fee Status" />
+
+        </android.support.v7.widget.CardView>
+
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>
