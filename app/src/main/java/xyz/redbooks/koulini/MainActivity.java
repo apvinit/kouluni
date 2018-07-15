@@ -13,9 +13,13 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
+import xyz.redbooks.koulini.ui.AboutFragment;
 import xyz.redbooks.koulini.ui.ContactUsFragment;
+import xyz.redbooks.koulini.ui.GalleryFragment;
+import xyz.redbooks.koulini.ui.HolidayCalendarFragment;
 import xyz.redbooks.koulini.ui.HomeFragment;
 import xyz.redbooks.koulini.ui.NoticeFragment;
 
@@ -54,11 +58,46 @@ public class MainActivity extends AppCompatActivity {
                     drawerLayout.closeDrawers();
 
                     // Add code here to update the UI based on the item selected
-                    // For example, swap UI fragments here
+                    // swap UI fragments here
                     switch (menuItem.getItemId()){
+
+                        case R.id.menu_nd_home :
+                            fragment = new HomeFragment();
+                            fm.beginTransaction().replace(R.id.fragment_container, fragment)
+                                    .commit();
+                            if(bottomNavigationView.getVisibility() == View.GONE){
+                                bottomNavigationView.setVisibility(View.VISIBLE);
+                            }
+                            break;
+
+                        case R.id.menu_nd_notice :
+                            fragment = new NoticeFragment();
+                            fm.beginTransaction().replace(R.id.fragment_container, fragment)
+                                    .commit();
+                            bottomNavigationView.setVisibility(View.GONE);
+                            break;
+
+                        case R.id.menu_nd_holiday_calendar:
+                            fragment = new HolidayCalendarFragment();
+                            fm.beginTransaction().replace(R.id.fragment_container, fragment)
+                                    .commit();
+                            break;
+
                         case R.id.menu_nd_contact_us :
                             fragment = new ContactUsFragment();
-                            fm.beginTransaction().replace(R.id.fragment_container, fragment).commit();
+                            fm.beginTransaction().replace(R.id.fragment_container, fragment)
+                                    .addToBackStack(null).commit();
+                            break;
+
+                        case R.id.menu_nd_about :
+                            fragment = new AboutFragment();
+                            fm.beginTransaction().replace(R.id.fragment_container, fragment)
+                                    .commit();
+                            break;
+                        case R.id.menu_nd_gallery:
+                            fragment = new GalleryFragment();
+                            fm.beginTransaction().replace(R.id.fragment_container, fragment)
+                                    .commit();
                     }
 
                     return true;
@@ -70,7 +109,6 @@ public class MainActivity extends AppCompatActivity {
 
         if(fragment == null){
             fragment = new HomeFragment();
-//            fragment = new NoticeFragment();
             fm.beginTransaction().add(R.id.fragment_container, fragment).commit();
         }
 

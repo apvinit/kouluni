@@ -3,10 +3,13 @@
 
     <group android:checkableBehavior="single">
 
+        <item android:id="@+id/menu_nd_home"
+            android:title="@string/home"
+            android:icon="@drawable/home"
+            android:checked="true" />
 
         <item android:id="@+id/menu_nd_notice"
             android:title="@string/notice"
-            android:checked="true"
             android:icon="@drawable/notices" />
 
         <item android:id="@+id/menu_nd_holiday_calendar" android:title="@string/holiday_calendar"
