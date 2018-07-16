@@ -50,7 +50,6 @@
         android:gravity="bottom"
         android:hint="@string/message_string"
         android:inputType="textMultiLine"
-        android:maxLines="6"
         android:padding="8dp"
         app:layout_constraintBottom_toTopOf="@+id/msg_submit"
         app:layout_constraintEnd_toEndOf="parent"
