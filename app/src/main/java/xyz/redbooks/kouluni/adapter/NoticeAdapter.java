@@ -1,4 +1,4 @@
-package xyz.redbooks.koulini.adapter;
+package xyz.redbooks.kouluni.adapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import xyz.redbooks.koulini.R;
+import xyz.redbooks.kouluni.R;
 
 public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.NoticeViewHolder> {
     @NonNull

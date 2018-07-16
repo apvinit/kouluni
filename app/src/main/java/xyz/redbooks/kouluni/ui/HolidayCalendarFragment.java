@@ -1,4 +1,4 @@
-package xyz.redbooks.koulini.ui;
+package xyz.redbooks.kouluni.ui;
 
 
 import android.os.Bundle;
@@ -10,13 +10,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import xyz.redbooks.koulini.R;
-import xyz.redbooks.koulini.adapter.NoticeAdapter;
+import xyz.redbooks.kouluni.R;
+import xyz.redbooks.kouluni.adapter.HolidayCalendarAdapter;
 
-public class NoticeFragment extends Fragment {
+public class HolidayCalendarFragment extends Fragment {
 
 
-    public NoticeFragment() {
+    public HolidayCalendarFragment() {
         // Required empty public constructor
     }
 
@@ -25,10 +25,10 @@ public class NoticeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_notice, container, false);
-        RecyclerView recyclerView = view.findViewById(R.id.list_notice);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(new NoticeAdapter());
+        View view = inflater.inflate(R.layout.fragment_holiday_calendar, container, false);
+        RecyclerView recyclerView = view.findViewById(R.id.holiday_calendar_days);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setAdapter(new HolidayCalendarAdapter());
         return view;
     }
 

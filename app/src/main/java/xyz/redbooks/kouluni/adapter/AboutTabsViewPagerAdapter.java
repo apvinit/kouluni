@@ -1,4 +1,4 @@
-package xyz.redbooks.koulini.adapter;
+package xyz.redbooks.kouluni.adapter;
 
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -6,8 +6,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import xyz.redbooks.koulini.ui.GalleryFragment;
-import xyz.redbooks.koulini.ui.InfoFragment;
+import xyz.redbooks.kouluni.ui.GalleryFragment;
+import xyz.redbooks.kouluni.ui.InfoFragment;
 
 public class AboutTabsViewPagerAdapter extends FragmentStatePagerAdapter {
 

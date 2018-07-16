@@ -1,4 +1,4 @@
-package xyz.redbooks.koulini;
+package xyz.redbooks.kouluni;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("xyz.redbooks.koulini", appContext.getPackageName());
+        assertEquals("xyz.redbooks.kouluni", appContext.getPackageName());
     }
 }

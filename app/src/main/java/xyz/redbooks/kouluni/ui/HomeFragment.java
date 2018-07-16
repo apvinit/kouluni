@@ -1,4 +1,4 @@
-package xyz.redbooks.koulini.ui;
+package xyz.redbooks.kouluni.ui;
 
 
 import android.os.Bundle;
@@ -13,7 +13,7 @@ import com.squareup.picasso.Picasso;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
 
-import xyz.redbooks.koulini.R;
+import xyz.redbooks.kouluni.R;
 
 public class HomeFragment extends Fragment {
 

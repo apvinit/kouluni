@@ -1,4 +1,4 @@
-package xyz.redbooks.koulini;
+package xyz.redbooks.kouluni;
 
 import org.junit.Test;
 

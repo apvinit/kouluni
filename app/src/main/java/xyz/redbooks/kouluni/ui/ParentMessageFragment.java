@@ -1,4 +1,4 @@
-package xyz.redbooks.koulini.ui;
+package xyz.redbooks.kouluni.ui;
 
 
 import android.os.Bundle;
@@ -10,8 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import xyz.redbooks.koulini.R;
-import xyz.redbooks.koulini.adapter.ParentMessageAdapter;
+import xyz.redbooks.kouluni.R;
+import xyz.redbooks.kouluni.adapter.ParentMessageAdapter;
 
 
 public class ParentMessageFragment extends Fragment {

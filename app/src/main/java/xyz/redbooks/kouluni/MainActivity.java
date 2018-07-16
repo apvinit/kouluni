@@ -1,4 +1,4 @@
-package xyz.redbooks.koulini;
+package xyz.redbooks.kouluni;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -16,13 +16,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import xyz.redbooks.koulini.ui.AboutFragment;
-import xyz.redbooks.koulini.ui.ContactUsFragment;
-import xyz.redbooks.koulini.ui.GalleryFragment;
-import xyz.redbooks.koulini.ui.HolidayCalendarFragment;
-import xyz.redbooks.koulini.ui.HomeFragment;
-import xyz.redbooks.koulini.ui.NoticeFragment;
-import xyz.redbooks.koulini.ui.ProfileFragment;
+import xyz.redbooks.kouluni.ui.AboutFragment;
+import xyz.redbooks.kouluni.ui.ContactUsFragment;
+import xyz.redbooks.kouluni.ui.GalleryFragment;
+import xyz.redbooks.kouluni.ui.HolidayCalendarFragment;
+import xyz.redbooks.kouluni.ui.HomeFragment;
+import xyz.redbooks.kouluni.ui.NoticeFragment;
+import xyz.redbooks.kouluni.ui.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity {
 
