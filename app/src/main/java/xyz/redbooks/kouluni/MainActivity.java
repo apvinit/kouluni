@@ -17,11 +17,13 @@ import android.view.View;
 import android.widget.Toast;
 
 import xyz.redbooks.kouluni.ui.AboutFragment;
+import xyz.redbooks.kouluni.ui.AttendanceFragment;
 import xyz.redbooks.kouluni.ui.ContactUsFragment;
 import xyz.redbooks.kouluni.ui.GalleryFragment;
 import xyz.redbooks.kouluni.ui.HolidayCalendarFragment;
 import xyz.redbooks.kouluni.ui.HomeFragment;
 import xyz.redbooks.kouluni.ui.NoticeFragment;
+import xyz.redbooks.kouluni.ui.ParentMessageFragment;
 import xyz.redbooks.kouluni.ui.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -109,14 +111,12 @@ public class MainActivity extends AppCompatActivity {
         fragment = fm.findFragmentById(R.id.fragment_container);
 
         if(fragment == null){
-//            fragment = new HomeFragment();
-            fragment = new ProfileFragment();
+            fragment = new HomeFragment();
             fm.beginTransaction().add(R.id.fragment_container, fragment).commit();
 
         }
 
-
-        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        setUpBottomNavigationMenu();
     }
 
     @Override
@@ -138,5 +138,45 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
 
+    }
+
+    private void setUpBottomNavigationMenu(){
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(
+                new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        switch (item.getItemId()){
+                            case R.id.menu_btm_home:
+                                fragment = new HomeFragment();
+                                fm.beginTransaction().replace(R.id.fragment_container, fragment)
+                                        .commit();
+                                item.setChecked(true);
+                                break;
+                            case R.id.menu_btm_attendance :
+                                fragment = new AttendanceFragment();
+                                fm.beginTransaction().replace(R.id.fragment_container, fragment)
+                                        .addToBackStack(null).commit();
+                                item.setChecked(true);
+                                break;
+
+                            case R.id.menu_btm_parent_message:
+                                fragment = new ParentMessageFragment();
+                                fm.beginTransaction().replace(R.id.fragment_container, fragment)
+                                        .addToBackStack(null).commit();
+                                item.setChecked(true);
+                                break;
+
+                            case R.id.menu_btm_profile :
+                                fragment = new ProfileFragment();
+                                fm.beginTransaction().replace(R.id.fragment_container, fragment)
+                                        .addToBackStack(null).commit();
+                                item.setChecked(true);
+                                break;
+                        }
+                        return true;
+                    }
+                }
+        );
     }
 }
