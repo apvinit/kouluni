@@ -36,4 +36,7 @@
     <string name="info">Info</string>
     <string name="personal_info_string">Personal Info</string>
     <string name="name_string">Name</string>
+    <string name="time_table">Time Table</string>
+    <string name="syllabus">Syllabus</string>
+    <string name="report_card">Report Card</string>
 </resources>
