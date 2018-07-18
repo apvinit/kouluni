@@ -219,9 +219,10 @@
             <TextView
                 android:id="@+id/txt_reportCard"
                 style="@style/TextButtonCard"
+                android:background="?attr/selectableItemBackground"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Report Card" />
+                android:text="@string/report_card" />
 
         </android.support.v7.widget.CardView>
 
@@ -243,9 +244,10 @@
             <TextView
                 android:id="@+id/txt_syllabus"
                 style="@style/TextButtonCard"
+                android:background="?attr/selectableItemBackground"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Syllabus" />
+                android:text="@string/syllabus" />
 
         </android.support.v7.widget.CardView>
 
@@ -267,9 +269,10 @@
             <TextView
                 android:id="@+id/txt_timeTable"
                 style="@style/TextButtonCard"
+                android:background="?attr/selectableItemBackground"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Time Table" />
+                android:text="@string/time_table" />
 
         </android.support.v7.widget.CardView>
 
