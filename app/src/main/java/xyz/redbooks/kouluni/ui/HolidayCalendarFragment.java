@@ -26,9 +26,6 @@ public class HolidayCalendarFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_holiday_calendar, container, false);
-        RecyclerView recyclerView = view.findViewById(R.id.holiday_calendar_days);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(new HolidayCalendarAdapter());
         return view;
     }
 
