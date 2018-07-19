@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import xyz.redbooks.kouluni.R;
@@ -28,19 +29,12 @@ public class ParentMessageFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_parent_message, container, false);
-        RecyclerView recyclerView = view.findViewById(R.id.parent_message_list);
+        final RecyclerView recyclerView = view.findViewById(R.id.parent_message_list);
         LinearLayoutManager lm = new LinearLayoutManager(getActivity());
         lm.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(lm);
 
-        ParentMessageAdapter parentMessageAdapter = new ParentMessageAdapter(
-                new ParentMessageAdapter.OnExpandButtonClickListener() {
-                    @Override
-                    public void onExpandButtonClick() {
-                        Toast.makeText(getContext(),"Dropdown Clicked",Toast.LENGTH_SHORT).show();
-                    }
-                }
-        );
+        final ParentMessageAdapter parentMessageAdapter = new ParentMessageAdapter();
         recyclerView.setAdapter(parentMessageAdapter);
         return view;
     }

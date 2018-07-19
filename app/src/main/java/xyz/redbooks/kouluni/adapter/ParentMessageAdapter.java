@@ -13,14 +13,8 @@ import xyz.redbooks.kouluni.R;
 
 public class ParentMessageAdapter extends RecyclerView.Adapter<ParentMessageAdapter.ParentMessageViewHolder>{
 
-    public interface OnExpandButtonClickListener {
-        public void onExpandButtonClick();
-    }
+    public ParentMessageAdapter(){
 
-    OnExpandButtonClickListener clickListener;
-
-    public ParentMessageAdapter(OnExpandButtonClickListener clickListener){
-        this.clickListener = clickListener;
     }
 
     @NonNull
@@ -31,14 +25,26 @@ public class ParentMessageAdapter extends RecyclerView.Adapter<ParentMessageAdap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ParentMessageViewHolder holder, int position) {
-        holder.parentMessageDate.setText(R.string.parent_message_date_string);
-        holder.parentMessageHeading.setText(R.string.parent_message_heading_string);
-        holder.parentMessageBody.setText(R.string.parent_message_body_string);
+    public void onBindViewHolder(@NonNull final ParentMessageViewHolder holder, final int position) {
+        TextView date = holder.parentMessageDate;
+        final TextView body = holder.parentMessageBody;
+        TextView heading = holder.parentMessageHeading;
+        final ImageButton dropdown = holder.dropdown;
+
+        date.setText(R.string.parent_message_date_string);
+        heading.setText(R.string.parent_message_heading_string);
+        body.setText(R.string.parent_message_body_string);
         holder.dropdown.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                clickListener.onExpandButtonClick();
+                if(body.getVisibility() == View.GONE){
+                    body.setVisibility(View.VISIBLE);
+                    dropdown.setImageResource(R.drawable.arrow_drop_up);
+                }
+                else {
+                    body.setVisibility(View.GONE);
+                    dropdown.setImageResource(R.drawable.arrow_drop_down);
+                }
             }
         });
     }
@@ -48,14 +54,14 @@ public class ParentMessageAdapter extends RecyclerView.Adapter<ParentMessageAdap
         return 8;
     }
 
-    public class ParentMessageViewHolder extends RecyclerView.ViewHolder {
+    class ParentMessageViewHolder extends RecyclerView.ViewHolder {
 
         TextView parentMessageDate;
         TextView parentMessageHeading;
         TextView parentMessageBody;
         ImageButton dropdown;
 
-        public ParentMessageViewHolder(View itemView) {
+        ParentMessageViewHolder(View itemView) {
             super(itemView);
             parentMessageDate = itemView.findViewById(R.id.parent_message_date);
             parentMessageHeading = itemView.findViewById(R.id.parent_message_heading);
