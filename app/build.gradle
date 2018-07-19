@@ -38,4 +38,7 @@ dependencies {
     implementation 'com.android.support:cardview-v7:27.1.1'
     //circleview
     implementation 'de.hdodenhof:circleimageview:2.2.0'
+
+    //Calendar view
+    implementation 'com.github.prolificinteractive:material-calendarview:1.6.0'
 }
