@@ -25,4 +25,13 @@
             android:icon="@drawable/gallery"
             android:title="Gallery"/>
     </group>
+
+    <group android:id="@+id/userStatus"
+        android:checkableBehavior="single">
+        <item android:id="@+id/loginOrLogout"
+            android:icon="@drawable/profile"
+            android:title="Login"/>
+    </group>
+
+
 </menu>
