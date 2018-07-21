@@ -22,6 +22,7 @@ import xyz.redbooks.kouluni.ui.ContactUsFragment;
 import xyz.redbooks.kouluni.ui.GalleryFragment;
 import xyz.redbooks.kouluni.ui.HolidayCalendarFragment;
 import xyz.redbooks.kouluni.ui.HomeFragment;
+import xyz.redbooks.kouluni.ui.LoginFragment;
 import xyz.redbooks.kouluni.ui.NoticeFragment;
 import xyz.redbooks.kouluni.ui.ParentMessageFragment;
 import xyz.redbooks.kouluni.ui.ProfileFragment;
@@ -33,13 +34,15 @@ public class MainActivity extends AppCompatActivity {
 
     Fragment fragment;
     FragmentManager fm;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.home);
         setSupportActionBar(toolbar);
 
         ActionBar actionbar = getSupportActionBar();
@@ -71,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
                             if(bottomNavigationView.getVisibility() == View.GONE){
                                 bottomNavigationView.setVisibility(View.VISIBLE);
                             }
+                            toolbar.setTitle(R.string.home);
                             break;
 
                         case R.id.menu_nd_notice :
@@ -78,29 +82,40 @@ public class MainActivity extends AppCompatActivity {
                             fm.beginTransaction().replace(R.id.fragment_container, fragment)
                                     .commit();
                             bottomNavigationView.setVisibility(View.GONE);
+                            toolbar.setTitle(R.string.notice);
                             break;
 
                         case R.id.menu_nd_holiday_calendar:
                             fragment = new HolidayCalendarFragment();
                             fm.beginTransaction().replace(R.id.fragment_container, fragment)
                                     .commit();
+                            toolbar.setTitle(R.string.holiday_calendar);
                             break;
 
                         case R.id.menu_nd_contact_us :
                             fragment = new ContactUsFragment();
                             fm.beginTransaction().replace(R.id.fragment_container, fragment)
                                     .addToBackStack(null).commit();
+                            toolbar.setTitle(R.string.contact_us);
                             break;
 
                         case R.id.menu_nd_about :
                             fragment = new AboutFragment();
                             fm.beginTransaction().replace(R.id.fragment_container, fragment)
                                     .commit();
+                            toolbar.setTitle(R.string.about);
                             break;
                         case R.id.menu_nd_gallery:
                             fragment = new GalleryFragment();
                             fm.beginTransaction().replace(R.id.fragment_container, fragment)
                                     .commit();
+                            toolbar.setTitle(R.string.gallery);
+                            break;
+                        case R.id.menu_nd_loginOrLogout:
+                            fragment = new LoginFragment();
+                            fm.beginTransaction().replace(R.id.fragment_container, fragment)
+                                    .commit();
+                            toolbar.setTitle(R.string.login);
                     }
 
                     return true;
@@ -152,12 +167,14 @@ public class MainActivity extends AppCompatActivity {
                                 fm.beginTransaction().replace(R.id.fragment_container, fragment)
                                         .commit();
                                 item.setChecked(true);
+                                toolbar.setTitle(R.string.home);
                                 break;
                             case R.id.menu_btm_attendance :
                                 fragment = new AttendanceFragment();
                                 fm.beginTransaction().replace(R.id.fragment_container, fragment)
                                         .addToBackStack(null).commit();
                                 item.setChecked(true);
+                                toolbar.setTitle(R.string.attendance);
                                 break;
 
                             case R.id.menu_btm_parent_message:
@@ -165,6 +182,7 @@ public class MainActivity extends AppCompatActivity {
                                 fm.beginTransaction().replace(R.id.fragment_container, fragment)
                                         .addToBackStack(null).commit();
                                 item.setChecked(true);
+                                toolbar.setTitle(R.string.message);
                                 break;
 
                             case R.id.menu_btm_profile :
@@ -172,6 +190,7 @@ public class MainActivity extends AppCompatActivity {
                                 fm.beginTransaction().replace(R.id.fragment_container, fragment)
                                         .addToBackStack(null).commit();
                                 item.setChecked(true);
+                                toolbar.setTitle(R.string.profile);
                                 break;
                         }
                         return true;
