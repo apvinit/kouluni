@@ -1,4 +1,4 @@
-package xyz.redbooks.kouluni;
+package xyz.redbooks.kouluni.ui.main;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -16,16 +16,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import xyz.redbooks.kouluni.ui.AboutFragment;
-import xyz.redbooks.kouluni.ui.AttendanceFragment;
-import xyz.redbooks.kouluni.ui.ContactUsFragment;
-import xyz.redbooks.kouluni.ui.GalleryFragment;
-import xyz.redbooks.kouluni.ui.HolidayCalendarFragment;
-import xyz.redbooks.kouluni.ui.HomeFragment;
-import xyz.redbooks.kouluni.ui.LoginFragment;
-import xyz.redbooks.kouluni.ui.NoticeFragment;
-import xyz.redbooks.kouluni.ui.ParentMessageFragment;
-import xyz.redbooks.kouluni.ui.ProfileFragment;
+import xyz.redbooks.kouluni.R;
+import xyz.redbooks.kouluni.ui.about.AboutFragment;
+import xyz.redbooks.kouluni.ui.user.attendance.AttendanceFragment;
+import xyz.redbooks.kouluni.ui.contact.ContactUsFragment;
+import xyz.redbooks.kouluni.ui.gallery.GalleryFragment;
+import xyz.redbooks.kouluni.ui.holidayCalendar.HolidayCalendarFragment;
+import xyz.redbooks.kouluni.ui.home.HomeFragment;
+import xyz.redbooks.kouluni.ui.user.login.LoginFragment;
+import xyz.redbooks.kouluni.ui.notice.NoticeFragment;
+import xyz.redbooks.kouluni.ui.user.parentMessage.ParentMessageFragment;
+import xyz.redbooks.kouluni.ui.user.profile.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity {
 

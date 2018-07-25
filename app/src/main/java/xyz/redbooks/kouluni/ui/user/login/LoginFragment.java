@@ -1,4 +1,4 @@
-package xyz.redbooks.kouluni.ui;
+package xyz.redbooks.kouluni.ui.user.login;
 
 
 import android.os.Bundle;
@@ -10,10 +10,11 @@ import android.view.ViewGroup;
 
 import xyz.redbooks.kouluni.R;
 
-public class HolidayCalendarFragment extends Fragment {
+
+public class LoginFragment extends Fragment {
 
 
-    public HolidayCalendarFragment() {
+    public LoginFragment() {
         // Required empty public constructor
     }
 
@@ -22,8 +23,7 @@ public class HolidayCalendarFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_holiday_calendar, container, false);
-        return view;
+        return inflater.inflate(R.layout.fragment_login, container, false);
     }
 
 }

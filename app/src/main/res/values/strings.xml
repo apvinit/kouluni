@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">kouluni</string>
+    <string name="app_name">Kouluni</string>
     <string name="home">Home</string>
     <string name="attendance">Attendance</string>
     <string name="message_string">Message</string>
@@ -10,11 +10,7 @@
     <string name="about">About</string>
     <string name="gallery">Gallery</string>
     <string name="notification">Notification</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="s_b_p_vidya_vihar_sirsa_katihar">S.B.P Vidya Vihar Sirsa Katihar</string>
-    <string name="know_more">KNOW MORE</string>
     <string name="school_logo">School Logo</string>
     <string name="sign_in">Sign In</string>
     <string name="username">Username</string>
@@ -31,7 +27,7 @@
     <string name="parent_message_body_string">Your ward passed all the examination with distinction, some other important text to be told</string>
     <string name="parent_message_date_string">12 Jan 2018</string>
     <string name="holiday_date_string">25 December</string>
-    <string name="holiday_description_string">Christmas Day</string>
+    <string name="holiday_description_string">Friendship Day</string>
     <string name="dummy_text">Lorem Ipsum Dolor site amemy. This is dummuy string. Yes This is demo string. This is meant to be just a placeholder for some text</string>
     <string name="info">Info</string>
     <string name="personal_info_string">Personal Info</string>
@@ -40,4 +36,5 @@
     <string name="syllabus">Syllabus</string>
     <string name="report_card">Report Card</string>
     <string name="login">Login</string>
+    <string name="logout">Logout</string>
 </resources>

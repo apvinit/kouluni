@@ -1,4 +1,4 @@
-package xyz.redbooks.kouluni.ui;
+package xyz.redbooks.kouluni.ui.about;
 
 
 import android.os.Bundle;
@@ -10,11 +10,13 @@ import android.view.ViewGroup;
 
 import xyz.redbooks.kouluni.R;
 
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class InfoFragment extends Fragment {
 
-public class LoginFragment extends Fragment {
 
-
-    public LoginFragment() {
+    public InfoFragment() {
         // Required empty public constructor
     }
 
@@ -23,7 +25,8 @@ public class LoginFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false);
+        View view = inflater.inflate(R.layout.fragment_info, container, false);
+        return view;
     }
 
 }
