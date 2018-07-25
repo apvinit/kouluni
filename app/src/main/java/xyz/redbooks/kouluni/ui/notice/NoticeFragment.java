@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import xyz.redbooks.kouluni.R;
-import xyz.redbooks.kouluni.adapter.NoticeAdapter;
 
 public class NoticeFragment extends Fragment {
 
