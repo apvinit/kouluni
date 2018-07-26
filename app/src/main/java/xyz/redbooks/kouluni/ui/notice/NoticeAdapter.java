@@ -30,7 +30,7 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.NoticeView
         final TextView noticeText = holder.noticeText;
         CardView cardNoticeItem = holder.cardNoticeItem;
 
-        holder.noticeDate.setText(R.string.holiday_date_string);
+        holder.noticeDate.setText(R.string.date);
         holder.noticeHeading.setText(R.string.parent_message_heading_string);
         noticeText.setText(R.string.dummy_text);
 

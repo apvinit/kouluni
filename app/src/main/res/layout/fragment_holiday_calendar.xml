@@ -49,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="8dp"
-            android:text="Friendship Day"
+            android:text="@string/holiday_description"
             android:textAlignment="center"
             android:textColor="@color/primaryLightColor"
             android:textSize="20sp"

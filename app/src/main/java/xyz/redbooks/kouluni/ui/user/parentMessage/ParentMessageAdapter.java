@@ -17,7 +17,7 @@ import xyz.redbooks.kouluni.R;
 
 public class ParentMessageAdapter extends RecyclerView.Adapter<ParentMessageAdapter.ParentMessageViewHolder>{
 
-    public ParentMessageAdapter(){
+    ParentMessageAdapter(){
 
     }
 
@@ -36,7 +36,7 @@ public class ParentMessageAdapter extends RecyclerView.Adapter<ParentMessageAdap
         final ImageButton dropdown = holder.dropdown;
         CardView cardParentMessage = holder.cardParentMessage;
 
-        date.setText(R.string.parent_message_date_string);
+        date.setText(R.string.date);
         heading.setText(R.string.parent_message_heading_string);
         body.setText(R.string.parent_message_body_string);
         cardParentMessage.setOnClickListener(new View.OnClickListener() {

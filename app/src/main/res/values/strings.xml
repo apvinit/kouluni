@@ -1,40 +1,79 @@
 <resources>
+
+    <!--App Strings-->
     <string name="app_name">Kouluni</string>
+    <string name="notification">Notification</string>
+    <string name="icon">Icon</string>
+    <string name="date">25 December 2018</string>
+
+    <!--App Navigation Bar Strings-->
     <string name="home">Home</string>
-    <string name="attendance">Attendance</string>
-    <string name="message_string">Message</string>
-    <string name="profile">Profile</string>
     <string name="notice">Notice</string>
     <string name="holiday_calendar">Holiday Calendar</string>
     <string name="contact_us">Contact Us</string>
     <string name="about">About</string>
     <string name="gallery">Gallery</string>
-    <string name="notification">Notification</string>
-    <string name="s_b_p_vidya_vihar_sirsa_katihar">S.B.P Vidya Vihar Sirsa Katihar</string>
+    <string name="login">Login</string>
+    <string name="logout">Logout</string>
+
+    <!--Bottom Navigation Menu Strings-->
+    <string name="attendance">Attendance</string>
+    <string name="message">Message</string>
+    <string name="profile">Profile</string>
+
+    <!--Home Page Default Strings-->
     <string name="school_logo">School Logo</string>
-    <string name="sign_in">Sign In</string>
+    <string name="school_name">Full School Name Here</string>
+    <string name="school_address">Address Of School</string>
+
+    <!--Login Page Strings-->
     <string name="username">Username</string>
     <string name="password">Password</string>
-    <string name="forgot_password">Forgot Password</string>
-    <string name="icon">Icon</string>
+    <string name="sign_in">Sign In</string>
+
+    <!--ContactUs Page String-->
     <string name="email">Email</string>
     <string name="subject">Subject</string>
-    <string name="message">Message</string>
+        <!--Message is already declared above in bottom nav strings-->
     <string name="submit">Submit</string>
     <string name="or">OR</string>
     <string name="call">CALL</string>
-    <string name="parent_message_heading_string">Important : Pupil passed the test</string>
-    <string name="parent_message_body_string">Your ward passed all the examination with distinction, some other important text to be told</string>
-    <string name="parent_message_date_string">12 Jan 2018</string>
-    <string name="holiday_date_string">25 December</string>
-    <string name="holiday_description_string">Friendship Day</string>
+
+    <!--Parent Message Strings-->
+    <!--Date Already Declared in App Strings Above-->
+    <string name="parent_message_heading_string">Parent Message Heading String</string>
+    <string name="parent_message_body_string">This is parent message body string.
+        This will usually be two or more lines.
+        It will contain the detail description of the message.</string>
+
+    <!--Holiday Calendar Strings-->
+    <string name="holiday_description">Friendship Day</string>
+
+    <!--About School Strings-->
+    <string name="school_image">School Image</string>
+    <string name="about_school">About School</string>
+    <string name="principal_message">Principal Message</string>
+    <string name="principal_name">Principal Name</string>
     <string name="dummy_text">Lorem Ipsum Dolor site amemy. This is dummuy string. Yes This is demo string. This is meant to be just a placeholder for some text</string>
-    <string name="info">Info</string>
+
+    <!--Student Profile Strings-->
     <string name="personal_info_string">Personal Info</string>
-    <string name="name_string">Name</string>
-    <string name="time_table">Time Table</string>
-    <string name="syllabus">Syllabus</string>
+    <string name="name">Name</string>
+    <string name="student_name">Student Name</string>
+    <string name="father_name">Father\'s Name :</string>
+    <string name="student_father_name">Student\'s Father\'s Name</string>
+    <string name="mother_name">Mother\'s Name :</string>
+    <string name="student_mother_name">Student\'s Mother\'s Name</string>
+    <string name="std_class">Class :</string>
+    <string name="student_class">12 (D)</string>
+    <string name="d_o_b">D.O.B. :</string>
+    <string name="students_dob">6&#8211;18&#8211;1998</string>
+    <string name="contact">Contact :</string>
+    <string name="student_contact_no">9876543210</string>
+    <string name="address">Address :</string>
+    <string name="student_address">Students Residential Address</string>
     <string name="report_card">Report Card</string>
-    <string name="login">Login</string>
-    <string name="logout">Logout</string>
+    <string name="syllabus">Syllabus</string>
+    <string name="time_table">Time Table</string>
+
 </resources>
