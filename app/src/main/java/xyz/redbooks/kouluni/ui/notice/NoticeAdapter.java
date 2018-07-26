@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import xyz.redbooks.kouluni.R;
@@ -26,7 +27,7 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.NoticeView
     @Override
     public void onBindViewHolder(@NonNull NoticeViewHolder holder, int position) {
 
-        final ImageButton noticeDropdown = holder.notice_dropdown;
+        final ImageView noticeDropdown = holder.notice_dropdown;
         final TextView noticeText = holder.noticeText;
         CardView cardNoticeItem = holder.cardNoticeItem;
 
@@ -60,7 +61,7 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.NoticeView
         TextView noticeDate;
         TextView noticeText;
         TextView noticeHeading;
-        ImageButton notice_dropdown;
+        ImageView notice_dropdown;
 
         NoticeViewHolder(View itemView) {
             super(itemView);

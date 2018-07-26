@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import xyz.redbooks.kouluni.R;
@@ -33,7 +34,7 @@ public class ParentMessageAdapter extends RecyclerView.Adapter<ParentMessageAdap
         TextView date = holder.parentMessageDate;
         final TextView body = holder.parentMessageBody;
         TextView heading = holder.parentMessageHeading;
-        final ImageButton dropdown = holder.dropdown;
+        final ImageView dropdown = holder.dropdown;
         CardView cardParentMessage = holder.cardParentMessage;
 
         date.setText(R.string.date);
@@ -65,7 +66,7 @@ public class ParentMessageAdapter extends RecyclerView.Adapter<ParentMessageAdap
         TextView parentMessageDate;
         TextView parentMessageHeading;
         TextView parentMessageBody;
-        ImageButton dropdown;
+        ImageView dropdown;
 
         ParentMessageViewHolder(View itemView) {
             super(itemView);
