@@ -33,8 +33,9 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="arrow_drop_up" />
-                            <entry key="sourceFile" value="$USER_HOME$/Downloads/schoolLogo.svg" />
+                            <entry key="assetSourceType" value="FILE" />
+                            <entry key="outputName" value="arrow_drop_down" />
+                            <entry key="sourceFile" value="$USER_HOME$/Downloads/school_gallery/down.svg" />
                           </map>
                         </option>
                       </PersistentState>
