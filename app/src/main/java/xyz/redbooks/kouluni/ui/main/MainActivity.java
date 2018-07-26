@@ -34,7 +34,7 @@ import xyz.redbooks.kouluni.ui.notice.NoticeFragment;
 import xyz.redbooks.kouluni.ui.user.parentMessage.ParentMessageFragment;
 import xyz.redbooks.kouluni.ui.user.profile.ProfileFragment;
 import xyz.redbooks.kouluni.utils.CommonUtils;
-import xyz.redbooks.kouluni.utils.Constants;
+import xyz.redbooks.kouluni.utils.AppConstants;
 
 /**
  * Created by h4rdw1r3
@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
         //////////////////////////////////////////
         String json = "";
         try {
-         json = CommonUtils.loadJSONFromAsset(this,Constants.SCHOOL_DETAILS_JSON);
+         json = CommonUtils.loadJSONFromAsset(this, AppConstants.SCHOOL_DETAILS_JSON);
         }catch (IOException e){
             e.printStackTrace();
         }
