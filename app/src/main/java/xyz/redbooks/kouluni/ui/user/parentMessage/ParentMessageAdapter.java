@@ -10,6 +10,10 @@ import android.widget.TextView;
 
 import xyz.redbooks.kouluni.R;
 
+/**
+ * Created by h4rdw1r3
+ */
+
 public class ParentMessageAdapter extends RecyclerView.Adapter<ParentMessageAdapter.ParentMessageViewHolder>{
 
     public ParentMessageAdapter(){

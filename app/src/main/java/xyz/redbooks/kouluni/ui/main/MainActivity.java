@@ -28,6 +28,10 @@ import xyz.redbooks.kouluni.ui.notice.NoticeFragment;
 import xyz.redbooks.kouluni.ui.user.parentMessage.ParentMessageFragment;
 import xyz.redbooks.kouluni.ui.user.profile.ProfileFragment;
 
+/**
+ * Created by h4rdw1r3
+ */
+
 public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigationView;

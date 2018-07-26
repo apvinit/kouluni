@@ -10,6 +10,10 @@ import android.widget.TextView;
 
 import xyz.redbooks.kouluni.R;
 
+/**
+ * Created by h4rdw1r3
+ */
+
 public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.NoticeViewHolder> {
     @NonNull
     @Override

@@ -15,6 +15,11 @@ import xyz.redbooks.kouluni.R;
 /**
  * A simple {@link Fragment} subclass.
  */
+
+/**
+ * Created by h4rdw1r3
+ */
+
 public class GalleryFragment extends Fragment {
 
 

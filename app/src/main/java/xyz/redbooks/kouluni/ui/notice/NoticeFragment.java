@@ -12,6 +12,10 @@ import android.view.ViewGroup;
 
 import xyz.redbooks.kouluni.R;
 
+/**
+ * Created by h4rdw1r3
+ */
+
 public class NoticeFragment extends Fragment {
 
 

@@ -15,8 +15,9 @@ import xyz.redbooks.kouluni.R;
 import xyz.redbooks.kouluni.adapter.AboutTabsViewPagerAdapter;
 
 /**
- * A simple {@link Fragment} subclass.
+ * Created by h4rdw1r3
  */
+
 public class AboutFragment extends Fragment {
 
 

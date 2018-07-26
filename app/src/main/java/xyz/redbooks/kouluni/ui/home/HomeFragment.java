@@ -15,6 +15,10 @@ import com.synnapps.carouselview.ImageListener;
 
 import xyz.redbooks.kouluni.R;
 
+/**
+ * Created by h4rdw1r3
+ */
+
 public class HomeFragment extends Fragment {
 
     CarouselView carouselView;

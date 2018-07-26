@@ -11,6 +11,10 @@ import com.squareup.picasso.Picasso;
 
 import xyz.redbooks.kouluni.R;
 
+/**
+ * Created by h4rdw1r3
+ */
+
 public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryViewHolder> {
 
     private int[] imagesResource = {
