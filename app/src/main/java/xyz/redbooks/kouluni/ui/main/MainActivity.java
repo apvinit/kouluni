@@ -11,12 +11,18 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
+import java.io.IOException;
+
 import xyz.redbooks.kouluni.R;
+import xyz.redbooks.kouluni.data.model.others.School;
 import xyz.redbooks.kouluni.ui.about.AboutFragment;
 import xyz.redbooks.kouluni.ui.user.attendance.AttendanceFragment;
 import xyz.redbooks.kouluni.ui.contact.ContactUsFragment;
@@ -27,6 +33,8 @@ import xyz.redbooks.kouluni.ui.user.login.LoginFragment;
 import xyz.redbooks.kouluni.ui.notice.NoticeFragment;
 import xyz.redbooks.kouluni.ui.user.parentMessage.ParentMessageFragment;
 import xyz.redbooks.kouluni.ui.user.profile.ProfileFragment;
+import xyz.redbooks.kouluni.utils.CommonUtils;
+import xyz.redbooks.kouluni.utils.Constants;
 
 /**
  * Created by h4rdw1r3
@@ -137,6 +145,25 @@ public class MainActivity extends AppCompatActivity {
         }
 
         setUpBottomNavigationMenu();
+
+        //////////////////////////////////////////
+        String json = "";
+        try {
+         json = CommonUtils.loadJSONFromAsset(this,Constants.SCHOOL_DETAILS_JSON);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        if(json != null){
+            Log.d("JSON", json);
+        }
+
+        Gson gson = new Gson();
+        School school = new School();
+        school = gson.fromJson(json, School.class);
+        Log.d("GSON","Name = " + school.getName() + "Address = " + school.getAddress()
+        + "Logo Resource " + school.getLogoResource());
+
+        /////////////////////////////////////
     }
 
     @Override
