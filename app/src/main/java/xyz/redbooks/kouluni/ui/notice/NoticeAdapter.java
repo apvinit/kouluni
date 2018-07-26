@@ -1,6 +1,7 @@
 package xyz.redbooks.kouluni.ui.notice;
 
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,12 +28,13 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.NoticeView
 
         final ImageButton noticeDropdown = holder.notice_dropdown;
         final TextView noticeText = holder.noticeText;
+        CardView cardNoticeItem = holder.cardNoticeItem;
 
         holder.noticeDate.setText(R.string.holiday_date_string);
         holder.noticeHeading.setText(R.string.parent_message_heading_string);
         noticeText.setText(R.string.dummy_text);
 
-        noticeDropdown.setOnClickListener(new View.OnClickListener() {
+        cardNoticeItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(noticeText.getVisibility() == View.GONE){
@@ -54,6 +56,7 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.NoticeView
 
     class NoticeViewHolder extends RecyclerView.ViewHolder{
 
+        CardView cardNoticeItem;
         TextView noticeDate;
         TextView noticeText;
         TextView noticeHeading;
@@ -65,6 +68,7 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.NoticeView
             noticeText = itemView.findViewById(R.id.notice_text);
             noticeHeading = itemView.findViewById(R.id.notice_heading);
             notice_dropdown = itemView.findViewById(R.id.notice_dropdown);
+            cardNoticeItem = itemView.findViewById(R.id.card_notice_item);
         }
     }
 }
