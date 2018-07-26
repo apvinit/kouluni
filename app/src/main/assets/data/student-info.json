@@ -1,0 +1,13 @@
+{
+  "id" : null,
+  "name" : "Binny Sharma",
+  "avatar" : "R.drawable.user",
+  "fatherName" : "Bijay Kumar Das",
+  "motherName" : "Amrita Das",
+  "gender" : "male",
+  "classStandard" : "12",
+  "section" : "D",
+  "dob" : "06-08-1998",
+  "contactNo" : 9876543210,
+  "address" : "Officer's Colony Katihar"
+}

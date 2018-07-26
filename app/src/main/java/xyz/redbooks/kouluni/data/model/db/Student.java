@@ -4,13 +4,13 @@ package xyz.redbooks.kouluni.data.model.db;
  * Created by h4rdw1r3 at 1:06 PM on 25/7/18
  */
 
-public class User {
+public class Student {
 
     private long id;
     private String name;
     private String avatar;
-    private String fathersName;
-    private String mothersName;
+    private String fatherName;
+    private String motherName;
     private String gender;
     private String classStandard;
     private String section;
@@ -43,19 +43,19 @@ public class User {
     }
 
     public String getFathersName() {
-        return fathersName;
+        return fatherName;
     }
 
     public void setFathersName(String fathersName) {
-        this.fathersName = fathersName;
+        this.fatherName = fathersName;
     }
 
     public String getMothersName() {
-        return mothersName;
+        return motherName;
     }
 
     public void setMothersName(String mothersName) {
-        this.mothersName = mothersName;
+        this.motherName = mothersName;
     }
 
     public String getGender() {
