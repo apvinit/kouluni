@@ -3,6 +3,7 @@
     android:id="@+id/card_parent_message"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?attr/selectableItemBackground"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:elevation="4dp"
@@ -38,11 +39,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/parent_message_date" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/dropdown"
             android:layout_width="36dp"
             android:layout_height="36dp"
-            android:background="?attr/selectableItemBackground"
             android:padding="8dp"
             android:contentDescription="@string/icon"
             android:src="@drawable/arrow_drop_down"

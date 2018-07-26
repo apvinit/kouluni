@@ -41,10 +41,11 @@
             app:layout_constraintTop_toBottomOf="@+id/notice_date"
             app:layout_constraintVertical_bias="0.0" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/notice_dropdown"
             android:layout_width="36dp"
             android:layout_height="36dp"
+            android:padding="8dp"
             android:contentDescription="@string/icon"
             android:background="@android:color/transparent"
             android:foregroundGravity="center_vertical"
