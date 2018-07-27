@@ -1,5 +1,9 @@
 {
   "name" : "S.B.P. VIDYA VIHAR",
   "address" : "SIRSA KATIHAR",
-  "logoResource" : "R.drawable.school_logo"
+  "logoResource" : "R.drawable.school_logo",
+  "featuredImage" : "School2.jpg",
+  "aboutSchool" :  "Lorem Ipsum Dolor Sit Amet. Lorem Ipsum Dolor sit amet, consectetur adipiscing elit. Fusce tempor consequat luctus. Nunc non tristique quam.",
+  "principalName" : "Arvind Alam",
+  "prinicipalMessage" : "Lorem Ipsum Dolor sit amet, consectetur adipiscing elit. Fusce tempor consequat luctus. Nunc non tristique quam."
 }

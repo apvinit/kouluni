@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "date" : "2018-11-21",
+    "subject" : "Your ward Stood first in class",
+    "message" : "In the last week science test your son stood first in the whole class",
+    "from" : "Science Teacher"
+  },
+  {
+    "id": 2,
+    "date" : "2018-11-21",
+    "subject" : "Your ward Stood last in class",
+    "message" : "Lorem Ipsum Dolor sit amet, consectetur adipiscing elit. Fusce tempor consequat luctus. Nunc non tristique quam.",
+    "from" : "Subject Teacher"
+  },
+  {
+    "id": 3,
+    "date" : "2018-11-21",
+    "subject" : "A message regarding your ward's doings.",
+    "message" : "Lorem Ipsum Dolor sit amet, consectetur adipiscing elit. Fusce tempor consequat luctus. Nunc non tristique quam.",
+    "from" : "Subject Teacher"
+  },
+  {
+    "id": 4,
+    "date" : "2018-11-21",
+    "subject" : "Your ward is doing strange things in class",
+    "message" : "Lorem Ipsum Dolor sit amet, consectetur adipiscing elit. Fusce tempor consequat luctus. Nunc non tristique quam.",
+    "from" : "Subject Teacher"
+  },
+  {
+    "id": 5,
+    "date" : "2018-11-21",
+    "subject" : "Ward failed in maths",
+    "message" : "Lorem Ipsum Dolor sit amet, consectetur adipiscing elit. Fusce tempor consequat luctus. Nunc non tristique quam.",
+    "from" : "Subject Teacher"
+  },
+  {
+    "id": 6,
+    "date" : "2018-11-21",
+    "subject" : "Your ward won first prize in speaking",
+    "message" : "Lorem Ipsum Dolor sit amet, consectetur adipiscing elit. Fusce tempor consequat luctus. Nunc non tristique quam.",
+    "from" : "Subject Teacher"
+  }
+]

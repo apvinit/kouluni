@@ -1,0 +1,33 @@
+[
+  {
+    "id" : 1,
+    "date" : "2018-11-21",
+    "subject" : "Result Announcement",
+    "message" : "The result for the class 10 annual exam has been declared please check yours."
+  },
+  {
+    "id" : 2,
+    "date" : "2018-11-21",
+    "subject" : "Inter School Competition",
+    "message" : "Inter school will be held on 23 jan 2018. Students interested can participate."
+  },
+  {
+    "id" : 3,
+    "date" : "2018-11-21",
+    "subject" : "Art Competition",
+    "message" : "Students interested in art competition can participate"
+  },
+  {
+    "id" : 4,
+    "date" : "2018-11-21",
+    "subject" : "Speaking Daring Challenge",
+    "message" : "Students interested in speaking competition can participate."
+  },
+  {
+    "id" : 5,
+    "date" : "2018-11-21",
+    "subject" : "Swimming Competition",
+    "message" : "Students can apply for selection in competition."
+  }
+
+]

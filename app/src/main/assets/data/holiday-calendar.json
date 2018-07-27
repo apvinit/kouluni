@@ -1,0 +1,88 @@
+[
+  {
+    "id" : 1,
+    "Date" : "2018-01-26",
+    "eventName" : "Republic Day"
+  },
+  {
+    "id" : 2,
+    "Date" : "2018-03-02",
+    "eventName" : "Holi"
+  },
+  {
+    "id" : 3,
+    "Date" : "2018-03-29",
+    "eventName" : "Mahavir Jayanti"
+  },
+  {
+    "id" : 4,
+    "Date" : "2018-03-30",
+    "eventName" : "Good Friday"
+  },
+  {
+    "id" : 5,
+    "Date" : "2018-04-30",
+    "eventName" : "Buddha Purnima"
+  },
+  {
+    "id" : 6,
+    "Date" : "2018-06-16",
+    "eventName" : "Id-ul-Fitr"
+  },
+  {
+    "id" : 8,
+    "Date" : "2018-08-15",
+    "eventName" : "Independence Day"
+  },
+  {
+    "id" : 8,
+    "Date" : "2018-08-22",
+    "eventName" : "Id-ul-Zuha (Bakrid)"
+  },
+  {
+    "id" : 9,
+    "Date" : "2018-09-03",
+    "eventName" : "Janmashtami"
+  },
+  {
+    "id" : 9,
+    "Date" : "2018-09-13",
+    "eventName" : "Ganesh Chaturthi"
+  },
+  {
+    "id" : 10,
+    "Date" : "2018-09-20",
+    "eventName" : "Muharram"
+  },
+  {
+    "id" : 11,
+    "Date" : "2018-10-02",
+    "eventName" : "Gandhi Jayanti"
+  },
+  {
+    "id" : 12,
+    "Date" : "2018-10-19",
+    "eventName" : "Dussehra"
+  },
+  {
+    "id" : 13,
+    "Date" : "2018-11-07",
+    "eventName" : "Diwali"
+  },
+  {
+    "id" : 14,
+    "Date" : "2018-11-21",
+    "eventName" : "Id-E-Milad"
+  },
+  {
+    "id" : 15,
+    "Date" : "2018-11-23",
+    "eventName" : "Guru Nanak Jayanti"
+  },
+  {
+    "id" : 16,
+    "Date" : "2018-12-25",
+    "eventName" : "Christmas Day"
+  }
+  
+]
