@@ -37,7 +37,7 @@ public class ProfileFragment extends Fragment {
     @BindView(R.id.std_mobileNo) TextView mobileNo;
     @BindView(R.id.std_address) TextView address;
 
-    @BindView(R.id.std_name) CircleImageView profile;
+//    @BindView(R.id.std_image_profile) CircleImageView profile;
 
     @BindView(R.id.card_reportCard) CardView reportCard;
     @BindView(R.id.card_syllabus) CardView syllabusCard;

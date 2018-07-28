@@ -15,7 +15,7 @@ public class Student {
     private String classStandard;
     private String section;
     private String dob;
-    private int contactNo;
+    private String contactNo;
     private String address;
 
     public long getId() {
@@ -42,20 +42,20 @@ public class Student {
         this.avatar = avatar;
     }
 
-    public String getFathersName() {
+    public String getFatherName() {
         return fatherName;
     }
 
-    public void setFathersName(String fathersName) {
-        this.fatherName = fathersName;
+    public void setFatherName(String fatherName) {
+        this.fatherName = fatherName;
     }
 
-    public String getMothersName() {
+    public String getMotherName() {
         return motherName;
     }
 
-    public void setMothersName(String mothersName) {
-        this.motherName = mothersName;
+    public void setMotherName(String motherName) {
+        this.motherName = motherName;
     }
 
     public String getGender() {
@@ -90,11 +90,11 @@ public class Student {
         this.dob = dob;
     }
 
-    public int getContactNo() {
+    public String getContactNo() {
         return contactNo;
     }
 
-    public void setContactNo(int contactNo) {
+    public void setContactNo(String contactNo) {
         this.contactNo = contactNo;
     }
 
