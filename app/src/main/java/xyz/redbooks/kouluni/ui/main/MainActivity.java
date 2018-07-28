@@ -21,6 +21,8 @@ import com.google.gson.Gson;
 
 import java.io.IOException;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import xyz.redbooks.kouluni.R;
 import xyz.redbooks.kouluni.data.model.others.School;
 import xyz.redbooks.kouluni.ui.about.AboutFragment;
@@ -42,19 +44,22 @@ import xyz.redbooks.kouluni.utils.AppConstants;
 
 public class MainActivity extends AppCompatActivity {
 
-    private BottomNavigationView bottomNavigationView;
-    private DrawerLayout drawerLayout;
+    @BindView(R.id.bottom_navigation) BottomNavigationView bottomNavigationView;
+    @BindView(R.id.drawer_layout) DrawerLayout drawerLayout;
+    @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindView(R.id.nav_view) NavigationView navigationView;
 
     Fragment fragment;
     FragmentManager fm;
-    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        toolbar = findViewById(R.id.toolbar);
+        //Inject ButterKnife
+        ButterKnife.bind(this);
+
         toolbar.setTitle(R.string.home);
         setSupportActionBar(toolbar);
 
@@ -64,9 +69,6 @@ public class MainActivity extends AppCompatActivity {
             actionbar.setHomeAsUpIndicator(R.drawable.ic_menu);
         }
 
-        drawerLayout = findViewById(R.id.drawer_layout);
-
-        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(
             new NavigationView.OnNavigationItemSelectedListener() {
                 @Override
@@ -146,24 +148,7 @@ public class MainActivity extends AppCompatActivity {
 
         setUpBottomNavigationMenu();
 
-        //////////////////////////////////////////
-        String json = "";
-        try {
-         json = CommonUtils.loadJSONFromAsset(this, AppConstants.SCHOOL_DETAILS_JSON);
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-        if(json != null){
-            Log.d("JSON", json);
-        }
 
-        Gson gson = new Gson();
-        School school = new School();
-        school = gson.fromJson(json, School.class);
-        Log.d("GSON","Name = " + school.getName() + "Address = " + school.getAddress()
-        + "Logo Resource " + school.getLogoResource());
-
-        /////////////////////////////////////
     }
 
     @Override
@@ -188,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setUpBottomNavigationMenu(){
-        bottomNavigationView = findViewById(R.id.bottom_navigation);
+//        bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -196,7 +181,8 @@ public class MainActivity extends AppCompatActivity {
                         switch (item.getItemId()){
                             case R.id.menu_btm_home:
                                 fragment = new HomeFragment();
-                                fm.beginTransaction().replace(R.id.fragment_container, fragment)
+                                fm.beginTransaction()
+                                        .replace(R.id.fragment_container, fragment)
                                         .commit();
                                 item.setChecked(true);
                                 toolbar.setTitle(R.string.home);

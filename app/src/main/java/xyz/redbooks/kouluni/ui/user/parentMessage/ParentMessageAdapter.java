@@ -10,6 +10,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import xyz.redbooks.kouluni.R;
 
 /**
@@ -62,19 +64,17 @@ public class ParentMessageAdapter extends RecyclerView.Adapter<ParentMessageAdap
 
     class ParentMessageViewHolder extends RecyclerView.ViewHolder {
 
-        CardView cardParentMessage;
-        TextView parentMessageDate;
-        TextView parentMessageHeading;
-        TextView parentMessageBody;
-        ImageView dropdown;
+        @BindView(R.id.card_parent_message) CardView cardParentMessage;
+        @BindView(R.id.parent_message_date) TextView parentMessageDate;
+        @BindView(R.id.parent_message_heading) TextView parentMessageHeading;
+        @BindView(R.id.parent_message_body) TextView parentMessageBody;
+        @BindView(R.id.dropdown) ImageView dropdown;
 
         ParentMessageViewHolder(View itemView) {
             super(itemView);
-            parentMessageDate = itemView.findViewById(R.id.parent_message_date);
-            parentMessageHeading = itemView.findViewById(R.id.parent_message_heading);
-            parentMessageBody = itemView.findViewById(R.id.parent_message_body);
-            dropdown = itemView.findViewById(R.id.dropdown);
-            cardParentMessage = itemView.findViewById(R.id.card_parent_message);
+
+            //Inject ButterKnife
+            ButterKnife.bind(this,itemView);
         }
     }
 }

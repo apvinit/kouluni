@@ -10,6 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import xyz.redbooks.kouluni.R;
 
 /**
@@ -18,6 +21,9 @@ import xyz.redbooks.kouluni.R;
 
 public class ParentMessageFragment extends Fragment {
 
+    private Unbinder unbinder;
+
+    @BindView(R.id.parent_message_list) RecyclerView recyclerView;
 
     public ParentMessageFragment() {
         // Required empty public constructor
@@ -29,14 +35,22 @@ public class ParentMessageFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_parent_message, container, false);
-        final RecyclerView recyclerView = view.findViewById(R.id.parent_message_list);
+
+        //Inject ButterKnife
+        unbinder = ButterKnife.bind(this, view);
+
         LinearLayoutManager lm = new LinearLayoutManager(getActivity());
         lm.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(lm);
 
-        final ParentMessageAdapter parentMessageAdapter = new ParentMessageAdapter();
+        ParentMessageAdapter parentMessageAdapter = new ParentMessageAdapter();
         recyclerView.setAdapter(parentMessageAdapter);
         return view;
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
 }

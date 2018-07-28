@@ -10,6 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import xyz.redbooks.kouluni.R;
 
 /**
@@ -18,7 +21,9 @@ import xyz.redbooks.kouluni.R;
 
 public class NoticeFragment extends Fragment {
 
+    private Unbinder unbinder;
 
+    @BindView(R.id.list_notice) RecyclerView recyclerView;
     public NoticeFragment() {
         // Required empty public constructor
     }
@@ -29,10 +34,18 @@ public class NoticeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_notice, container, false);
-        RecyclerView recyclerView = view.findViewById(R.id.list_notice);
+
+        //Inject ButterKnife
+        unbinder = ButterKnife.bind(this,view);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(new NoticeAdapter());
         return view;
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
 }

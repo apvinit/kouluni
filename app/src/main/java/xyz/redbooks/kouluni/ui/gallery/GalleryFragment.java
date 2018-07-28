@@ -10,6 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import xyz.redbooks.kouluni.R;
 
 /**
@@ -22,6 +25,9 @@ import xyz.redbooks.kouluni.R;
 
 public class GalleryFragment extends Fragment {
 
+    @BindView(R.id.grid_gallery) RecyclerView recyclerView;
+
+    private Unbinder unbinder;
 
     public GalleryFragment() {
         // Required empty public constructor
@@ -33,11 +39,19 @@ public class GalleryFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_gallery, container, false);
-        RecyclerView recyclerView = view.findViewById(R.id.grid_gallery);
+
+        // Inject ButterKnife
+        unbinder = ButterKnife.bind(this, view);
+
         RecyclerView.LayoutManager lm = new GridLayoutManager(getContext(), 2);
         recyclerView.setLayoutManager(lm);
         recyclerView.setAdapter(new GalleryAdapter());
         return view;
     }
 
+    @Override
+    public void onDestroyView() {
+        unbinder.unbind();
+        super.onDestroyView();
+    }
 }
