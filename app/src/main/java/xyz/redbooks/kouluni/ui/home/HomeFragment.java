@@ -20,6 +20,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import xyz.redbooks.kouluni.R;
 import xyz.redbooks.kouluni.data.model.others.School;
+import xyz.redbooks.kouluni.utils.AppConstants;
 
 /**
  * Created by h4rdw1r3
@@ -66,7 +67,7 @@ public class HomeFragment extends Fragment {
 
         schoolIcon.setImageResource(
                 getResources().getIdentifier(
-                        school.getLogoResource(),"drawable",getActivity().getPackageName()
+                        school.getLogoResource(),"drawable", AppConstants.PACKAGE_NAME
                 )
         );
         schoolName.setText(school.getName());
