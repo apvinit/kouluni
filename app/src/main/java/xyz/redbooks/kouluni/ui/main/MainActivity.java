@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
                         case R.id.menu_nd_home :
                             fragment = HomeFragment.getInstance();
-                            HomePresenter.createInstance((HomeFragment) fragment);
+                            HomePresenter.getInstance((HomeFragment) fragment);
                             homePresenter.updateViewReference((HomeFragment) fragment);
                             fm.beginTransaction().replace(R.id.fragment_container, fragment)
                                     .commit();
@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(fragment == null){
             fragment = HomeFragment.getInstance();
-            homePresenter = HomePresenter.createInstance((HomeFragment) fragment);
+            homePresenter = HomePresenter.getInstance((HomeFragment) fragment);
             fm.beginTransaction().add(R.id.fragment_container, fragment).commit();
 
         }
@@ -185,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
                         switch (item.getItemId()){
                             case R.id.menu_btm_home:
                                 fragment = HomeFragment.getInstance();
-                                HomePresenter.createInstance((HomeFragment) fragment);
+                                HomePresenter.getInstance((HomeFragment) fragment);
                                 homePresenter.updateViewReference((HomeFragment) fragment);
                                 fm.beginTransaction()
                                         .replace(R.id.fragment_container, fragment)

@@ -22,7 +22,7 @@ public class HomePresenter implements HomeContract.Presenter {
         this.homeView.setPresenter(this);
     }
 
-    public static HomePresenter createInstance(HomeContract.View homeView) {
+    public static HomePresenter getInstance(HomeContract.View homeView) {
         if(INSTANCE == null) {
             INSTANCE = new HomePresenter(homeView);
         }
