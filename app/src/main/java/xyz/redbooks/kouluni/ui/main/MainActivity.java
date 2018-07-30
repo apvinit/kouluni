@@ -25,7 +25,9 @@ import xyz.redbooks.kouluni.ui.contact.ContactPresenter;
 import xyz.redbooks.kouluni.ui.contact.ContactUsFragment;
 import xyz.redbooks.kouluni.ui.gallery.GalleryFragment;
 import xyz.redbooks.kouluni.ui.holidayCalendar.HolidayCalendarFragment;
+import xyz.redbooks.kouluni.ui.home.HomeContract;
 import xyz.redbooks.kouluni.ui.home.HomeFragment;
+import xyz.redbooks.kouluni.ui.home.HomePresenter;
 import xyz.redbooks.kouluni.ui.notice.NoticeFragment;
 import xyz.redbooks.kouluni.ui.user.attendance.AttendanceFragment;
 import xyz.redbooks.kouluni.ui.user.login.LoginFragment;
@@ -45,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
 
     Fragment fragment;
     FragmentManager fm;
+
+    private HomePresenter homePresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +81,9 @@ public class MainActivity extends AppCompatActivity {
                     switch (menuItem.getItemId()){
 
                         case R.id.menu_nd_home :
-                            fragment = new HomeFragment();
+                            fragment = HomeFragment.getInstance();
+                            HomePresenter.createInstance((HomeFragment) fragment);
+                            homePresenter.updateViewReference((HomeFragment) fragment);
                             fm.beginTransaction().replace(R.id.fragment_container, fragment)
                                     .commit();
                             if(bottomNavigationView.getVisibility() == View.GONE){
@@ -139,7 +145,8 @@ public class MainActivity extends AppCompatActivity {
         fragment = fm.findFragmentById(R.id.fragment_container);
 
         if(fragment == null){
-            fragment = new HomeFragment();
+            fragment = HomeFragment.getInstance();
+            homePresenter = HomePresenter.createInstance((HomeFragment) fragment);
             fm.beginTransaction().add(R.id.fragment_container, fragment).commit();
 
         }
@@ -177,7 +184,9 @@ public class MainActivity extends AppCompatActivity {
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         switch (item.getItemId()){
                             case R.id.menu_btm_home:
-                                fragment = new HomeFragment();
+                                fragment = HomeFragment.getInstance();
+                                HomePresenter.createInstance((HomeFragment) fragment);
+                                homePresenter.updateViewReference((HomeFragment) fragment);
                                 fm.beginTransaction()
                                         .replace(R.id.fragment_container, fragment)
                                         .commit();
