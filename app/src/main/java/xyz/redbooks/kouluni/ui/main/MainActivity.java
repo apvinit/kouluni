@@ -26,6 +26,7 @@ import butterknife.ButterKnife;
 import xyz.redbooks.kouluni.R;
 import xyz.redbooks.kouluni.data.model.others.School;
 import xyz.redbooks.kouluni.ui.about.AboutFragment;
+import xyz.redbooks.kouluni.ui.about.AboutPresenter;
 import xyz.redbooks.kouluni.ui.user.attendance.AttendanceFragment;
 import xyz.redbooks.kouluni.ui.contact.ContactUsFragment;
 import xyz.redbooks.kouluni.ui.gallery.GalleryFragment;
@@ -115,7 +116,10 @@ public class MainActivity extends AppCompatActivity {
                             break;
 
                         case R.id.menu_nd_about :
-                            fragment = new AboutFragment();
+                            fragment = AboutFragment.getInstance();
+
+                            //get Presenter and Pass View to it
+                            AboutPresenter.getInstance((AboutFragment)fragment);
                             fm.beginTransaction().replace(R.id.fragment_container, fragment)
                                     .commit();
                             toolbar.setTitle(R.string.about);
