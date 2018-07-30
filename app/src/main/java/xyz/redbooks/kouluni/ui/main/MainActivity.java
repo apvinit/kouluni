@@ -27,6 +27,7 @@ import xyz.redbooks.kouluni.R;
 import xyz.redbooks.kouluni.data.model.others.School;
 import xyz.redbooks.kouluni.ui.about.AboutFragment;
 import xyz.redbooks.kouluni.ui.about.AboutPresenter;
+import xyz.redbooks.kouluni.ui.contact.ContactPresenter;
 import xyz.redbooks.kouluni.ui.user.attendance.AttendanceFragment;
 import xyz.redbooks.kouluni.ui.contact.ContactUsFragment;
 import xyz.redbooks.kouluni.ui.gallery.GalleryFragment;
@@ -109,10 +110,11 @@ public class MainActivity extends AppCompatActivity {
                             break;
 
                         case R.id.menu_nd_contact_us :
-                            fragment = new ContactUsFragment();
+                            fragment = ContactUsFragment.getInstance();
                             fm.beginTransaction().replace(R.id.fragment_container, fragment)
                                     .addToBackStack(null).commit();
                             toolbar.setTitle(R.string.contact_us);
+                            ContactPresenter.getInstance((ContactUsFragment) fragment);
                             break;
 
                         case R.id.menu_nd_about :
