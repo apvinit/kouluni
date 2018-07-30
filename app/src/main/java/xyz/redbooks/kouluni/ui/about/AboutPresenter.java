@@ -18,7 +18,7 @@ public class AboutPresenter implements AboutContract.Presenter {
     public static AboutPresenter getInstance(AboutContract.View aboutView) {
 
         if(INSTANCE == null) {
-            return new AboutPresenter(aboutView);
+            INSTANCE =  new AboutPresenter(aboutView);
         }
 
         return INSTANCE;
