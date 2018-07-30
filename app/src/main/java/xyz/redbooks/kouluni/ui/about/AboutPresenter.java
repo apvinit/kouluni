@@ -15,13 +15,13 @@ public class AboutPresenter implements AboutContract.Presenter {
         this.aboutView.setPresenter(this);
     }
 
-    public static AboutPresenter getInstance(AboutContract.View aboutView) {
+    public static void createInstance(AboutContract.View aboutView) {
 
         if(INSTANCE == null) {
             INSTANCE =  new AboutPresenter(aboutView);
         }
 
-        return INSTANCE;
+//        return INSTANCE;
     }
 
     @Override

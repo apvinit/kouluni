@@ -1,5 +1,6 @@
 package xyz.redbooks.kouluni.ui.main;
 
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
@@ -9,36 +10,27 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
-
-import java.io.IOException;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import xyz.redbooks.kouluni.R;
-import xyz.redbooks.kouluni.data.model.others.School;
 import xyz.redbooks.kouluni.ui.about.AboutFragment;
 import xyz.redbooks.kouluni.ui.about.AboutPresenter;
 import xyz.redbooks.kouluni.ui.contact.ContactPresenter;
-import xyz.redbooks.kouluni.ui.user.attendance.AttendanceFragment;
 import xyz.redbooks.kouluni.ui.contact.ContactUsFragment;
 import xyz.redbooks.kouluni.ui.gallery.GalleryFragment;
 import xyz.redbooks.kouluni.ui.holidayCalendar.HolidayCalendarFragment;
 import xyz.redbooks.kouluni.ui.home.HomeFragment;
-import xyz.redbooks.kouluni.ui.user.login.LoginFragment;
 import xyz.redbooks.kouluni.ui.notice.NoticeFragment;
+import xyz.redbooks.kouluni.ui.user.attendance.AttendanceFragment;
+import xyz.redbooks.kouluni.ui.user.login.LoginFragment;
 import xyz.redbooks.kouluni.ui.user.parentMessage.ParentMessageFragment;
 import xyz.redbooks.kouluni.ui.user.profile.ProfileFragment;
-import xyz.redbooks.kouluni.utils.CommonUtils;
-import xyz.redbooks.kouluni.utils.AppConstants;
 
 /**
  * Created by h4rdw1r3
@@ -114,14 +106,14 @@ public class MainActivity extends AppCompatActivity {
                             fm.beginTransaction().replace(R.id.fragment_container, fragment)
                                     .addToBackStack(null).commit();
                             toolbar.setTitle(R.string.contact_us);
-                            ContactPresenter.getInstance((ContactUsFragment) fragment);
+                            ContactPresenter.createInstance((ContactUsFragment) fragment);
                             break;
 
                         case R.id.menu_nd_about :
                             fragment = AboutFragment.getInstance();
 
-                            //get Presenter and Pass View to it
-                            AboutPresenter.getInstance((AboutFragment)fragment);
+                            //Create Presenter and Pass View to it
+                            AboutPresenter.createInstance((AboutFragment)fragment);
                             fm.beginTransaction().replace(R.id.fragment_container, fragment)
                                     .commit();
                             toolbar.setTitle(R.string.about);
@@ -179,7 +171,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setUpBottomNavigationMenu(){
-//        bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override

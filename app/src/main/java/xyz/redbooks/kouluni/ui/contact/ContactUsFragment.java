@@ -42,9 +42,8 @@ public class ContactUsFragment extends Fragment implements ContactContract.View 
 
     @Override
     public void onResume() {
-        // do initial setup here by calling presenter.start()
         super.onResume();
-        contactPresenter.start();
+        // do initial setup here by calling presenter.start()
     }
 
     @Override

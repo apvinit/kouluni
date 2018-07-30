@@ -14,11 +14,11 @@ public class ContactPresenter implements ContactContract.Presenter {
         this.contactView.setPresenter(this);
     }
 
-    public static ContactPresenter getInstance(ContactContract.View contactView) {
+    public static void createInstance(ContactContract.View contactView) {
         if(INSTANCE == null){
             INSTANCE = new ContactPresenter(contactView);
         }
-        return INSTANCE;
+//        return INSTANCE;
     }
 
     @Override
