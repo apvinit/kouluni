@@ -37,6 +37,7 @@ import xyz.redbooks.kouluni.ui.notice.NoticePresenter;
 import xyz.redbooks.kouluni.ui.user.attendance.AttendanceFragment;
 import xyz.redbooks.kouluni.ui.user.login.LoginFragment;
 import xyz.redbooks.kouluni.ui.user.parentMessage.ParentMessageFragment;
+import xyz.redbooks.kouluni.ui.user.parentMessage.ParentMessagePresenter;
 import xyz.redbooks.kouluni.ui.user.profile.ProfileFragment;
 
 /**
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
     private GalleryPresenter galleryPresenter;
     private HolidayCalendarPresenter holidayCalendarPresenter;
     private NoticePresenter noticePresenter;
+    private ParentMessagePresenter parentMessagePresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -217,6 +219,10 @@ public class MainActivity extends AppCompatActivity {
 
                             case R.id.menu_btm_parent_message:
                                 fragment = new ParentMessageFragment();
+                                parentMessagePresenter = ParentMessagePresenter
+                                        .getInstance((ParentMessageFragment) fragment );
+                                parentMessagePresenter.updateViewReference(
+                                        (ParentMessageFragment) fragment);
                                 fm.beginTransaction().replace(R.id.fragment_container, fragment)
                                         .addToBackStack(null).commit();
                                 item.setChecked(true);

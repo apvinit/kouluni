@@ -1,10 +1,10 @@
 package xyz.redbooks.kouluni.ui.user.parentMessage;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,9 +19,10 @@ import xyz.redbooks.kouluni.R;
  * Created by h4rdw1r3
  */
 
-public class ParentMessageFragment extends Fragment {
+public class ParentMessageFragment extends Fragment implements ParentMessageContract.View{
 
     private Unbinder unbinder;
+    private ParentMessageContract.Presenter presenter;
 
     @BindView(R.id.parent_message_list) RecyclerView recyclerView;
 
@@ -39,12 +40,8 @@ public class ParentMessageFragment extends Fragment {
         //Inject ButterKnife
         unbinder = ButterKnife.bind(this, view);
 
-        LinearLayoutManager lm = new LinearLayoutManager(getActivity());
-        lm.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(lm);
+        presenter.start();
 
-        ParentMessageAdapter parentMessageAdapter = new ParentMessageAdapter();
-        recyclerView.setAdapter(parentMessageAdapter);
         return view;
     }
 
@@ -52,5 +49,27 @@ public class ParentMessageFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+    }
+
+    @Override
+    public void setLayoutManager(RecyclerView.LayoutManager lm) {
+        recyclerView.setLayoutManager(lm);
+    }
+
+    @Override
+    public void setAdapter(ParentMessageAdapter adapter) {
+        recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public Context giveContext() {
+        return getActivity();
+    }
+
+    @Override
+    public void setPresenter(ParentMessageContract.Presenter presenter) {
+        if(this.presenter == null){
+            this.presenter = presenter;
+        }
     }
 }
