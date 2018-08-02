@@ -13,7 +13,8 @@ import xyz.redbooks.kouluni.R;
 public class HomePresenter implements HomeContract.Presenter {
 
     private HomeContract.View homeView;
-    private int[] schoolImages = {R.drawable.school1, R.drawable.school2, R.drawable.school3};
+    private int[] schoolImages = {R.drawable.school1, R.drawable.school2, R.drawable.school3,
+        R.drawable.gallery_image1, R.drawable.gallery_image3};
 
     private static HomePresenter INSTANCE;
 
