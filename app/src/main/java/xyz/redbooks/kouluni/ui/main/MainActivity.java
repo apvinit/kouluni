@@ -35,6 +35,7 @@ import xyz.redbooks.kouluni.ui.home.HomePresenter;
 import xyz.redbooks.kouluni.ui.notice.NoticeFragment;
 import xyz.redbooks.kouluni.ui.notice.NoticePresenter;
 import xyz.redbooks.kouluni.ui.user.attendance.AttendanceFragment;
+import xyz.redbooks.kouluni.ui.user.attendance.AttendancePresenter;
 import xyz.redbooks.kouluni.ui.user.login.LoginFragment;
 import xyz.redbooks.kouluni.ui.user.login.LoginPresenter;
 import xyz.redbooks.kouluni.ui.user.parentMessage.ParentMessageFragment;
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
     private NoticePresenter noticePresenter;
     private ParentMessagePresenter parentMessagePresenter;
     private LoginPresenter loginPresenter;
+    private AttendancePresenter attendancePresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -215,6 +217,8 @@ public class MainActivity extends AppCompatActivity {
                                 break;
                             case R.id.menu_btm_attendance :
                                 fragment = new AttendanceFragment();
+                                attendancePresenter = AttendancePresenter.getInstance((AttendanceFragment) fragment);
+                                attendancePresenter.updateViewReference((AttendanceFragment) fragment);
                                 fm.beginTransaction().replace(R.id.fragment_container, fragment)
                                         .addToBackStack(null).commit();
                                 item.setChecked(true);
