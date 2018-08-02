@@ -1,6 +1,7 @@
 package xyz.redbooks.kouluni.ui.gallery;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -15,7 +16,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import xyz.redbooks.kouluni.R;
 
-/**
+/*
  * A simple {@link Fragment} subclass.
  */
 
@@ -23,16 +24,21 @@ import xyz.redbooks.kouluni.R;
  * Created by h4rdw1r3
  */
 
-public class GalleryFragment extends Fragment {
+public class GalleryFragment extends Fragment implements GalleryContract.View{
 
     @BindView(R.id.grid_gallery) RecyclerView recyclerView;
 
     private Unbinder unbinder;
+    private GalleryContract.Presenter presenter;
 
     public GalleryFragment() {
         // Required empty public constructor
     }
 
+
+    public static GalleryFragment getInstance(){
+       return new GalleryFragment();
+    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -43,9 +49,8 @@ public class GalleryFragment extends Fragment {
         // Inject ButterKnife
         unbinder = ButterKnife.bind(this, view);
 
-        RecyclerView.LayoutManager lm = new GridLayoutManager(getContext(), 2);
-        recyclerView.setLayoutManager(lm);
-        recyclerView.setAdapter(new GalleryAdapter());
+        presenter.start();
+
         return view;
     }
 
@@ -53,5 +58,26 @@ public class GalleryFragment extends Fragment {
     public void onDestroyView() {
         unbinder.unbind();
         super.onDestroyView();
+    }
+
+    @Override
+    public Context giveContext() {
+        return getActivity();
+    }
+
+    @Override
+    public void setLayoutManager(RecyclerView.LayoutManager lm) {
+        recyclerView.setLayoutManager(lm);
+    }
+
+    @Override
+    public void setAdapter(GalleryAdapter adapter) {
+        recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void setPresenter(GalleryContract.Presenter presenter) {
+        if(this.presenter == null)
+            this.presenter = presenter;
     }
 }

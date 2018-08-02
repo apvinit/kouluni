@@ -23,7 +23,9 @@ import xyz.redbooks.kouluni.ui.about.AboutFragment;
 import xyz.redbooks.kouluni.ui.about.AboutPresenter;
 import xyz.redbooks.kouluni.ui.contact.ContactPresenter;
 import xyz.redbooks.kouluni.ui.contact.ContactUsFragment;
+import xyz.redbooks.kouluni.ui.gallery.GalleryContract;
 import xyz.redbooks.kouluni.ui.gallery.GalleryFragment;
+import xyz.redbooks.kouluni.ui.gallery.GalleryPresenter;
 import xyz.redbooks.kouluni.ui.holidayCalendar.HolidayCalendarFragment;
 import xyz.redbooks.kouluni.ui.home.HomeContract;
 import xyz.redbooks.kouluni.ui.home.HomeFragment;
@@ -49,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     FragmentManager fm;
 
     private HomePresenter homePresenter;
+    private GalleryPresenter galleryPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,7 +128,9 @@ public class MainActivity extends AppCompatActivity {
                             toolbar.setTitle(R.string.about);
                             break;
                         case R.id.menu_nd_gallery:
-                            fragment = new GalleryFragment();
+                            fragment = GalleryFragment.getInstance();
+                            galleryPresenter = GalleryPresenter.getInstance((GalleryFragment) fragment);
+                            galleryPresenter.updateViewReference((GalleryFragment) fragment);
                             fm.beginTransaction().replace(R.id.fragment_container, fragment)
                                     .commit();
                             toolbar.setTitle(R.string.gallery);
