@@ -36,6 +36,7 @@ import xyz.redbooks.kouluni.ui.notice.NoticeFragment;
 import xyz.redbooks.kouluni.ui.notice.NoticePresenter;
 import xyz.redbooks.kouluni.ui.user.attendance.AttendanceFragment;
 import xyz.redbooks.kouluni.ui.user.login.LoginFragment;
+import xyz.redbooks.kouluni.ui.user.login.LoginPresenter;
 import xyz.redbooks.kouluni.ui.user.parentMessage.ParentMessageFragment;
 import xyz.redbooks.kouluni.ui.user.parentMessage.ParentMessagePresenter;
 import xyz.redbooks.kouluni.ui.user.profile.ProfileFragment;
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
     private HolidayCalendarPresenter holidayCalendarPresenter;
     private NoticePresenter noticePresenter;
     private ParentMessagePresenter parentMessagePresenter;
+    private LoginPresenter loginPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -148,6 +150,8 @@ public class MainActivity extends AppCompatActivity {
                             break;
                         case R.id.menu_nd_loginOrLogout:
                             fragment = new LoginFragment();
+                            loginPresenter = LoginPresenter.getInstance((LoginFragment) fragment);
+                            loginPresenter.updateViewReference((LoginFragment) fragment);
                             fm.beginTransaction().replace(R.id.fragment_container, fragment)
                                     .commit();
                             toolbar.setTitle(R.string.login);
