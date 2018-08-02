@@ -33,6 +33,7 @@ import xyz.redbooks.kouluni.ui.home.HomeContract;
 import xyz.redbooks.kouluni.ui.home.HomeFragment;
 import xyz.redbooks.kouluni.ui.home.HomePresenter;
 import xyz.redbooks.kouluni.ui.notice.NoticeFragment;
+import xyz.redbooks.kouluni.ui.notice.NoticePresenter;
 import xyz.redbooks.kouluni.ui.user.attendance.AttendanceFragment;
 import xyz.redbooks.kouluni.ui.user.login.LoginFragment;
 import xyz.redbooks.kouluni.ui.user.parentMessage.ParentMessageFragment;
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
     private HomePresenter homePresenter;
     private GalleryPresenter galleryPresenter;
     private HolidayCalendarPresenter holidayCalendarPresenter;
+    private NoticePresenter noticePresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,6 +102,8 @@ public class MainActivity extends AppCompatActivity {
 
                         case R.id.menu_nd_notice :
                             fragment = new NoticeFragment();
+                            noticePresenter = NoticePresenter.getInstance((NoticeFragment) fragment);
+                            noticePresenter.updateViewReference((NoticeFragment) fragment);
                             fm.beginTransaction().replace(R.id.fragment_container, fragment)
                                     .commit();
                             bottomNavigationView.setVisibility(View.GONE);

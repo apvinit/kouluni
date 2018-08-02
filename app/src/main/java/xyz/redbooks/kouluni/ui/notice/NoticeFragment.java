@@ -1,6 +1,7 @@
 package xyz.redbooks.kouluni.ui.notice;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -19,9 +20,10 @@ import xyz.redbooks.kouluni.R;
  * Created by h4rdw1r3
  */
 
-public class NoticeFragment extends Fragment {
+public class NoticeFragment extends Fragment implements NoticeContract.View {
 
     private Unbinder unbinder;
+    private NoticeContract.Presenter presenter;
 
     @BindView(R.id.list_notice) RecyclerView recyclerView;
     public NoticeFragment() {
@@ -38,8 +40,8 @@ public class NoticeFragment extends Fragment {
         //Inject ButterKnife
         unbinder = ButterKnife.bind(this,view);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(new NoticeAdapter());
+        presenter.start();
+
         return view;
     }
 
@@ -47,5 +49,27 @@ public class NoticeFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+    }
+
+    @Override
+    public void setLayoutManager(RecyclerView.LayoutManager lm) {
+        recyclerView.setLayoutManager(lm);
+    }
+
+    @Override
+    public void setAdapter(NoticeAdapter adapter) {
+        recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public Context giveContext() {
+        return getActivity();
+    }
+
+    @Override
+    public void setPresenter(NoticeContract.Presenter presenter) {
+        if(this.presenter == null){
+            this.presenter = presenter;
+        }
     }
 }
