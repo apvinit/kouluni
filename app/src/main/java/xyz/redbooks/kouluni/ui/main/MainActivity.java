@@ -41,6 +41,7 @@ import xyz.redbooks.kouluni.ui.user.login.LoginPresenter;
 import xyz.redbooks.kouluni.ui.user.parentMessage.ParentMessageFragment;
 import xyz.redbooks.kouluni.ui.user.parentMessage.ParentMessagePresenter;
 import xyz.redbooks.kouluni.ui.user.profile.ProfileFragment;
+import xyz.redbooks.kouluni.ui.user.profile.ProfilePresenter;
 
 /**
  * Created by h4rdw1r3
@@ -63,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
     private ParentMessagePresenter parentMessagePresenter;
     private LoginPresenter loginPresenter;
     private AttendancePresenter attendancePresenter;
+    private ProfilePresenter profilePresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -239,6 +241,8 @@ public class MainActivity extends AppCompatActivity {
 
                             case R.id.menu_btm_profile :
                                 fragment = new ProfileFragment();
+                                profilePresenter = ProfilePresenter.getInstance((ProfileFragment) fragment);
+                                profilePresenter.updateViewReference((ProfileFragment) fragment);
                                 fm.beginTransaction().replace(R.id.fragment_container, fragment)
                                         .addToBackStack(null).commit();
                                 item.setChecked(true);

@@ -17,27 +17,25 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import de.hdodenhof.circleimageview.CircleImageView;
 import xyz.redbooks.kouluni.R;
-import xyz.redbooks.kouluni.data.model.db.Student;
 
-/**
+/*
  * Created by h4rdw1r3
  */
 
-public class ProfileFragment extends Fragment {
+public class ProfileFragment extends Fragment implements ProfileContract.View {
 
-    private Student student;
     private Unbinder unbinder;
-
+    private ProfileContract.Presenter presenter;
 
     @BindView(R.id.std_name) TextView name;
     @BindView(R.id.std_fatherName) TextView fatherName;
     @BindView(R.id.std_mother_name) TextView motherName;
     @BindView(R.id.std_class) TextView std_class;
     @BindView(R.id.std_age) TextView age;
-    @BindView(R.id.std_mobileNo) TextView mobileNo;
+    @BindView(R.id.std_mobileNo) TextView contactNo;
     @BindView(R.id.std_address) TextView address;
 
-//    @BindView(R.id.std_image_profile) CircleImageView profile;
+//    @BindView(R.id.std_image_profile) CircleImageView profileImage;
 
     @BindView(R.id.card_reportCard) CardView reportCard;
     @BindView(R.id.card_syllabus) CardView syllabusCard;
@@ -51,14 +49,7 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        student = new Student();
-        student.setName("Rahul Anand");
-        student.setFatherName("Anand Singh");
-        student.setMotherName("Alisha Singh");
-        student.setClassStandard("12 (D)");
-        student.setDob("8-09-1998");
-        student.setContactNo("9876543210");
-        student.setAddress("H-No: 29, Police Colony Patna 800001");
+
     }
 
     @Override
@@ -70,19 +61,7 @@ public class ProfileFragment extends Fragment {
         //Inject ButterKnife
         unbinder = ButterKnife.bind(this, view);
 
-        name.setText(student.getName());
-
-        fatherName.setText(student.getFatherName());
-
-        motherName.setText(student.getMotherName());
-
-        std_class.setText(student.getClassStandard());
-
-        age.setText(student.getDob());
-
-        mobileNo.setText(student.getContactNo());
-
-        address.setText(student.getAddress());
+        presenter.start();
 
         reportCard.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,5 +91,51 @@ public class ProfileFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+    }
+
+    @Override
+    public void setProfileImage() {
+        //set the profile image to circleImageView
+    }
+
+    @Override
+    public void setStudentName(String name) {
+        this.name.setText(name);
+    }
+
+    @Override
+    public void setFatherName(String fatherName) {
+        this.fatherName.setText(fatherName);
+    }
+
+    @Override
+    public void setMotherName(String motherName) {
+        this.motherName.setText(motherName);
+    }
+
+    @Override
+    public void setDateOfBirth(String dob) {
+        this.age.setText(dob);
+    }
+
+    @Override
+    public void setContactNo(String contactNo) {
+        this.contactNo.setText(contactNo);
+    }
+
+    @Override
+    public void setAddress(String address) {
+        this.address.setText(address);
+    }
+
+    @Override
+    public void setClassStandard(String classStandard) {
+        std_class.setText(classStandard);
+    }
+
+    @Override
+    public void setPresenter(ProfileContract.Presenter presenter) {
+        if(this.presenter == null)
+            this.presenter = presenter;
     }
 }
