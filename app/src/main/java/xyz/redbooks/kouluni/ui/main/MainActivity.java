@@ -58,12 +58,14 @@ public class MainActivity extends AppCompatActivity {
     FragmentManager fm;
 
     private HomePresenter homePresenter;
-    private GalleryPresenter galleryPresenter;
-    private HolidayCalendarPresenter holidayCalendarPresenter;
     private NoticePresenter noticePresenter;
-    private ParentMessagePresenter parentMessagePresenter;
+    private HolidayCalendarPresenter holidayCalendarPresenter;
+    private AboutPresenter aboutPresenter;
+    private GalleryPresenter galleryPresenter;
     private LoginPresenter loginPresenter;
+
     private AttendancePresenter attendancePresenter;
+    private ParentMessagePresenter parentMessagePresenter;
     private ProfilePresenter profilePresenter;
 
     @Override
@@ -139,7 +141,8 @@ public class MainActivity extends AppCompatActivity {
                             fragment = AboutFragment.getInstance();
 
                             //Create Presenter and Pass View to it
-                            AboutPresenter.createInstance((AboutFragment)fragment);
+                            aboutPresenter = AboutPresenter.getInstance((AboutFragment)fragment);
+                            aboutPresenter.updateViewReference((AboutFragment) fragment);
                             fm.beginTransaction().replace(R.id.fragment_container, fragment)
                                     .commit();
                             toolbar.setTitle(R.string.about);
