@@ -23,13 +23,10 @@ import xyz.redbooks.kouluni.ui.about.AboutFragment;
 import xyz.redbooks.kouluni.ui.about.AboutPresenter;
 import xyz.redbooks.kouluni.ui.contact.ContactPresenter;
 import xyz.redbooks.kouluni.ui.contact.ContactUsFragment;
-import xyz.redbooks.kouluni.ui.gallery.GalleryContract;
 import xyz.redbooks.kouluni.ui.gallery.GalleryFragment;
 import xyz.redbooks.kouluni.ui.gallery.GalleryPresenter;
-import xyz.redbooks.kouluni.ui.holidayCalendar.HolidayCalendarContract;
 import xyz.redbooks.kouluni.ui.holidayCalendar.HolidayCalendarFragment;
 import xyz.redbooks.kouluni.ui.holidayCalendar.HolidayCalendarPresenter;
-import xyz.redbooks.kouluni.ui.home.HomeContract;
 import xyz.redbooks.kouluni.ui.home.HomeFragment;
 import xyz.redbooks.kouluni.ui.home.HomePresenter;
 import xyz.redbooks.kouluni.ui.notice.NoticeFragment;
@@ -49,6 +46,7 @@ import xyz.redbooks.kouluni.ui.user.profile.ProfilePresenter;
 
 public class MainActivity extends AppCompatActivity {
 
+    //**** ButterKnife View Injection ***************//
     @BindView(R.id.bottom_navigation) BottomNavigationView bottomNavigationView;
     @BindView(R.id.drawer_layout) DrawerLayout drawerLayout;
     @BindView(R.id.toolbar) Toolbar toolbar;
@@ -57,116 +55,27 @@ public class MainActivity extends AppCompatActivity {
     Fragment fragment;
     FragmentManager fm;
 
-    private HomePresenter homePresenter;
-    private NoticePresenter noticePresenter;
-    private HolidayCalendarPresenter holidayCalendarPresenter;
-    private AboutPresenter aboutPresenter;
-    private GalleryPresenter galleryPresenter;
-    private LoginPresenter loginPresenter;
+    //************ Presenter for View ****************//
+    /* We have to initialize presenter somewhere.
+     * We have manually done it.
+     * We can also use dependency Injection using any library like dagger2
+     */
 
-    private AttendancePresenter attendancePresenter;
-    private ParentMessagePresenter parentMessagePresenter;
-    private ProfilePresenter profilePresenter;
+    private HomePresenter homePresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Inject ButterKnife
+        //*** Inject ButterKnife ***//
         ButterKnife.bind(this);
 
-        toolbar.setTitle(R.string.home);
-        setSupportActionBar(toolbar);
+        setUpToolBar();
 
-        ActionBar actionbar = getSupportActionBar();
-        if(actionbar != null) {
-            actionbar.setDisplayHomeAsUpEnabled(true);
-            actionbar.setHomeAsUpIndicator(R.drawable.ic_menu);
-        }
+        setUpNavigationDrawer();
 
-        navigationView.setNavigationItemSelectedListener(
-            new NavigationView.OnNavigationItemSelectedListener() {
-                @Override
-                public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                    // set item as selected to persist highlight
-                    menuItem.setChecked(true);
-                    // close drawer when item is tapped
-                    drawerLayout.closeDrawers();
-
-                    // Add code here to update the UI based on the item selected
-                    // swap UI fragments here
-                    switch (menuItem.getItemId()){
-
-                        case R.id.menu_nd_home :
-                            fragment = HomeFragment.getInstance();
-                            HomePresenter.getInstance((HomeFragment) fragment);
-                            homePresenter.updateViewReference((HomeFragment) fragment);
-                            fm.beginTransaction().replace(R.id.fragment_container, fragment)
-                                    .commit();
-                            if(bottomNavigationView.getVisibility() == View.GONE){
-                                bottomNavigationView.setVisibility(View.VISIBLE);
-                            }
-                            toolbar.setTitle(R.string.home);
-                            break;
-
-                        case R.id.menu_nd_notice :
-                            fragment = new NoticeFragment();
-                            noticePresenter = NoticePresenter.getInstance((NoticeFragment) fragment);
-                            noticePresenter.updateViewReference((NoticeFragment) fragment);
-                            fm.beginTransaction().replace(R.id.fragment_container, fragment)
-                                    .commit();
-                            bottomNavigationView.setVisibility(View.GONE);
-                            toolbar.setTitle(R.string.notice);
-                            break;
-
-                        case R.id.menu_nd_holiday_calendar:
-                            fragment = new HolidayCalendarFragment();
-                            holidayCalendarPresenter = HolidayCalendarPresenter.getInstance((HolidayCalendarFragment) fragment);
-                            holidayCalendarPresenter.updateViewReference((HolidayCalendarFragment) fragment);
-                            fm.beginTransaction().replace(R.id.fragment_container, fragment)
-                                    .commit();
-                            toolbar.setTitle(R.string.holiday_calendar);
-                            break;
-
-                        case R.id.menu_nd_contact_us :
-                            fragment = ContactUsFragment.getInstance();
-                            fm.beginTransaction().replace(R.id.fragment_container, fragment)
-                                    .addToBackStack(null).commit();
-                            toolbar.setTitle(R.string.contact_us);
-                            ContactPresenter.createInstance((ContactUsFragment) fragment);
-                            break;
-
-                        case R.id.menu_nd_about :
-                            fragment = AboutFragment.getInstance();
-
-                            //Create Presenter and Pass View to it
-                            aboutPresenter = AboutPresenter.getInstance((AboutFragment)fragment);
-                            aboutPresenter.updateViewReference((AboutFragment) fragment);
-                            fm.beginTransaction().replace(R.id.fragment_container, fragment)
-                                    .commit();
-                            toolbar.setTitle(R.string.about);
-                            break;
-                        case R.id.menu_nd_gallery:
-                            fragment = GalleryFragment.getInstance();
-                            galleryPresenter = GalleryPresenter.getInstance((GalleryFragment) fragment);
-                            galleryPresenter.updateViewReference((GalleryFragment) fragment);
-                            fm.beginTransaction().replace(R.id.fragment_container, fragment)
-                                    .commit();
-                            toolbar.setTitle(R.string.gallery);
-                            break;
-                        case R.id.menu_nd_loginOrLogout:
-                            fragment = new LoginFragment();
-                            loginPresenter = LoginPresenter.getInstance((LoginFragment) fragment);
-                            loginPresenter.updateViewReference((LoginFragment) fragment);
-                            fm.beginTransaction().replace(R.id.fragment_container, fragment)
-                                    .commit();
-                            toolbar.setTitle(R.string.login);
-                    }
-
-                    return true;
-                }
-            });
+        setUpBottomNavigationMenu();
 
         fm = getSupportFragmentManager();
         fragment = fm.findFragmentById(R.id.fragment_container);
@@ -177,9 +86,6 @@ public class MainActivity extends AppCompatActivity {
             fm.beginTransaction().add(R.id.fragment_container, fragment).commit();
 
         }
-
-        setUpBottomNavigationMenu();
-
 
     }
 
@@ -211,50 +117,197 @@ public class MainActivity extends AppCompatActivity {
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         switch (item.getItemId()){
                             case R.id.menu_btm_home:
-                                fragment = HomeFragment.getInstance();
-                                HomePresenter.getInstance((HomeFragment) fragment);
-                                homePresenter.updateViewReference((HomeFragment) fragment);
-                                fm.beginTransaction()
-                                        .replace(R.id.fragment_container, fragment)
-                                        .commit();
+//                                fragment = HomeFragment.getInstance();
+//                                HomePresenter.getInstance((HomeFragment) fragment);
+//                                homePresenter.updateViewReference((HomeFragment) fragment);
+//                                fm.beginTransaction()
+//                                        .replace(R.id.fragment_container, fragment)
+//                                        .commit();
+//                                toolbar.setTitle(R.string.home);
+                                setUpHomeMenuItem();
                                 item.setChecked(true);
-                                toolbar.setTitle(R.string.home);
                                 break;
                             case R.id.menu_btm_attendance :
-                                fragment = new AttendanceFragment();
-                                attendancePresenter = AttendancePresenter.getInstance((AttendanceFragment) fragment);
-                                attendancePresenter.updateViewReference((AttendanceFragment) fragment);
-                                fm.beginTransaction().replace(R.id.fragment_container, fragment)
-                                        .addToBackStack(null).commit();
+                                setUpAttendanceMenu();
                                 item.setChecked(true);
-                                toolbar.setTitle(R.string.attendance);
                                 break;
 
                             case R.id.menu_btm_parent_message:
-                                fragment = new ParentMessageFragment();
-                                parentMessagePresenter = ParentMessagePresenter
-                                        .getInstance((ParentMessageFragment) fragment );
-                                parentMessagePresenter.updateViewReference(
-                                        (ParentMessageFragment) fragment);
-                                fm.beginTransaction().replace(R.id.fragment_container, fragment)
-                                        .addToBackStack(null).commit();
+                                setUpParentMessageMenu();
                                 item.setChecked(true);
-                                toolbar.setTitle(R.string.message);
                                 break;
 
                             case R.id.menu_btm_profile :
-                                fragment = new ProfileFragment();
-                                profilePresenter = ProfilePresenter.getInstance((ProfileFragment) fragment);
-                                profilePresenter.updateViewReference((ProfileFragment) fragment);
-                                fm.beginTransaction().replace(R.id.fragment_container, fragment)
-                                        .addToBackStack(null).commit();
+                                setUpProfileMenu();
                                 item.setChecked(true);
-                                toolbar.setTitle(R.string.profile);
                                 break;
                         }
                         return true;
                     }
                 }
         );
+    }
+
+    private void setUpToolBar(){
+        toolbar.setTitle(R.string.home);
+        setSupportActionBar(toolbar);
+
+        ActionBar actionbar = getSupportActionBar();
+        if(actionbar != null) {
+            actionbar.setDisplayHomeAsUpEnabled(true);
+            actionbar.setHomeAsUpIndicator(R.drawable.ic_menu);
+        }
+    }
+
+    private void setUpNavigationDrawer(){
+        navigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                        // set item as selected to persist highlight
+                        menuItem.setChecked(true);
+                        // close drawer when item is tapped
+                        drawerLayout.closeDrawers();
+
+                        // Add code here to update the UI based on the item selected
+                        // swap UI fragments here
+                        switch (menuItem.getItemId()){
+
+                            case R.id.menu_nd_home :
+                                setUpHomeMenuItem();
+                                if(bottomNavigationView.getVisibility() == View.GONE){
+                                    bottomNavigationView.setVisibility(View.VISIBLE);
+                                }
+                                break;
+
+                            case R.id.menu_nd_notice :
+                                setUpNoticeMenuItem();
+                                break;
+
+                            case R.id.menu_nd_holiday_calendar:
+                                setUpHolidayCalendarMenuItem();
+                                break;
+
+                            case R.id.menu_nd_contact_us :
+                                setUpContactUsMenuItem();
+                                break;
+
+                            case R.id.menu_nd_about :
+                                setUpAboutMenuItem();
+                                break;
+
+                            case R.id.menu_nd_gallery:
+                                setUpGalleryMenuItem();
+                                break;
+
+                            case R.id.menu_nd_loginOrLogout:
+                                setUpLoginOrLogoutMenuItem();
+                                break;
+                        }
+
+                        return true;
+                    }
+                });
+    }
+
+    private void setUpHomeMenuItem(){
+        fragment = HomeFragment.getInstance();
+        HomePresenter.getInstance((HomeFragment) fragment);
+        homePresenter.updateViewReference((HomeFragment) fragment);
+        fm.beginTransaction().replace(R.id.fragment_container, fragment)
+                .commit();
+        toolbar.setTitle(R.string.home);
+    }
+
+    private void setUpNoticeMenuItem(){
+        NoticePresenter noticePresenter;
+        fragment = new NoticeFragment();
+        noticePresenter = NoticePresenter.getInstance((NoticeFragment) fragment);
+        noticePresenter.updateViewReference((NoticeFragment) fragment);
+        fm.beginTransaction().replace(R.id.fragment_container, fragment)
+                .commit();
+        bottomNavigationView.setVisibility(View.GONE);
+        toolbar.setTitle(R.string.notice);
+    }
+
+    private void setUpHolidayCalendarMenuItem(){
+        HolidayCalendarPresenter holidayCalendarPresenter;
+        fragment = new HolidayCalendarFragment();
+        holidayCalendarPresenter = HolidayCalendarPresenter
+                .getInstance((HolidayCalendarFragment) fragment);
+        holidayCalendarPresenter.updateViewReference((HolidayCalendarFragment) fragment);
+        fm.beginTransaction().replace(R.id.fragment_container, fragment)
+                .commit();
+        toolbar.setTitle(R.string.holiday_calendar);
+    }
+
+    private void setUpContactUsMenuItem(){
+        fragment = ContactUsFragment.getInstance();
+        fm.beginTransaction().replace(R.id.fragment_container, fragment)
+                .addToBackStack(null).commit();
+        toolbar.setTitle(R.string.contact_us);
+        ContactPresenter.createInstance((ContactUsFragment) fragment);
+    }
+
+    private void setUpGalleryMenuItem(){
+        GalleryPresenter galleryPresenter;
+        fragment = GalleryFragment.getInstance();
+        galleryPresenter = GalleryPresenter.getInstance((GalleryFragment) fragment);
+        galleryPresenter.updateViewReference((GalleryFragment) fragment);
+        fm.beginTransaction().replace(R.id.fragment_container, fragment)
+                .commit();
+        toolbar.setTitle(R.string.gallery);
+    }
+
+    private void setUpAboutMenuItem(){
+        AboutPresenter aboutPresenter;
+        fragment = AboutFragment.getInstance();
+        aboutPresenter = AboutPresenter.getInstance((AboutFragment)fragment);
+        aboutPresenter.updateViewReference((AboutFragment) fragment);
+        fm.beginTransaction().replace(R.id.fragment_container, fragment)
+                .commit();
+        toolbar.setTitle(R.string.about);
+    }
+
+    private void setUpLoginOrLogoutMenuItem(){
+        LoginPresenter loginPresenter;
+        fragment = new LoginFragment();
+        loginPresenter = LoginPresenter.getInstance((LoginFragment) fragment);
+        loginPresenter.updateViewReference((LoginFragment) fragment);
+        fm.beginTransaction().replace(R.id.fragment_container, fragment)
+                .commit();
+        toolbar.setTitle(R.string.login);
+    }
+
+    private void setUpAttendanceMenu(){
+        AttendancePresenter attendancePresenter;
+        fragment = new AttendanceFragment();
+        attendancePresenter = AttendancePresenter.getInstance((AttendanceFragment) fragment);
+        attendancePresenter.updateViewReference((AttendanceFragment) fragment);
+        fm.beginTransaction().replace(R.id.fragment_container, fragment)
+                .commit();
+        toolbar.setTitle(R.string.attendance);
+    }
+
+    private void setUpParentMessageMenu(){
+        ParentMessagePresenter parentMessagePresenter;
+        fragment = new ParentMessageFragment();
+        parentMessagePresenter = ParentMessagePresenter
+                .getInstance((ParentMessageFragment) fragment );
+        parentMessagePresenter.updateViewReference(
+                (ParentMessageFragment) fragment);
+        fm.beginTransaction().replace(R.id.fragment_container, fragment)
+                .addToBackStack(null).commit();
+        toolbar.setTitle(R.string.message);
+    }
+
+    private void setUpProfileMenu(){
+        ProfilePresenter profilePresenter;
+        fragment = new ProfileFragment();
+        profilePresenter = ProfilePresenter.getInstance((ProfileFragment) fragment);
+        profilePresenter.updateViewReference((ProfileFragment) fragment);
+        fm.beginTransaction().replace(R.id.fragment_container, fragment)
+                .addToBackStack(null).commit();
+        toolbar.setTitle(R.string.profile);
     }
 }
