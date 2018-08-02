@@ -26,7 +26,9 @@ import xyz.redbooks.kouluni.ui.contact.ContactUsFragment;
 import xyz.redbooks.kouluni.ui.gallery.GalleryContract;
 import xyz.redbooks.kouluni.ui.gallery.GalleryFragment;
 import xyz.redbooks.kouluni.ui.gallery.GalleryPresenter;
+import xyz.redbooks.kouluni.ui.holidayCalendar.HolidayCalendarContract;
 import xyz.redbooks.kouluni.ui.holidayCalendar.HolidayCalendarFragment;
+import xyz.redbooks.kouluni.ui.holidayCalendar.HolidayCalendarPresenter;
 import xyz.redbooks.kouluni.ui.home.HomeContract;
 import xyz.redbooks.kouluni.ui.home.HomeFragment;
 import xyz.redbooks.kouluni.ui.home.HomePresenter;
@@ -52,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
     private HomePresenter homePresenter;
     private GalleryPresenter galleryPresenter;
+    private HolidayCalendarPresenter holidayCalendarPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,6 +108,8 @@ public class MainActivity extends AppCompatActivity {
 
                         case R.id.menu_nd_holiday_calendar:
                             fragment = new HolidayCalendarFragment();
+                            holidayCalendarPresenter = HolidayCalendarPresenter.getInstance((HolidayCalendarFragment) fragment);
+                            holidayCalendarPresenter.updateViewReference((HolidayCalendarFragment) fragment);
                             fm.beginTransaction().replace(R.id.fragment_container, fragment)
                                     .commit();
                             toolbar.setTitle(R.string.holiday_calendar);
