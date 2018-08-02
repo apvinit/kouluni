@@ -52,7 +52,7 @@ public class ContactUsFragment extends Fragment implements ContactContract.View 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_contact_us, container, false);
 
-        //Inject butterknife here
+        //Inject butterKnife here
         unbinder = ButterKnife.bind(this, view);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +62,12 @@ public class ContactUsFragment extends Fragment implements ContactContract.View 
         });
 
         return view;
+    }
+
+    @Override
+    public void onDestroyView() {
+        unbinder.unbind();
+        super.onDestroyView();
     }
 
     @Override
