@@ -1,8 +1,12 @@
 package xyz.redbooks.kouluni.data;
 
+import android.content.Context;
+
 import java.util.List;
 
+import xyz.redbooks.kouluni.data.local.db.AppDbHelper;
 import xyz.redbooks.kouluni.data.local.db.DbHelper;
+import xyz.redbooks.kouluni.data.local.prefs.AppPreferencesHelper;
 import xyz.redbooks.kouluni.data.local.prefs.PreferencesHelper;
 import xyz.redbooks.kouluni.data.model.db.Attendance;
 import xyz.redbooks.kouluni.data.model.db.Holiday;
@@ -14,12 +18,21 @@ import xyz.redbooks.kouluni.data.model.db.ParentMessage;
  */
 public class AppDataManager implements DataManager {
 
+    private static AppDataManager INSTANCE;
+
     private final DbHelper appDbHelper;
     private final PreferencesHelper appPreferenceHelper;
 
-    private AppDataManager(DbHelper dbHelper, PreferencesHelper preferencesHelper){
-        appDbHelper = dbHelper;
-        appPreferenceHelper = preferencesHelper;
+    private AppDataManager(Context context){
+        appDbHelper = AppDbHelper.getInstance(context);
+        appPreferenceHelper = AppPreferencesHelper.getInstance(context,"AppPrefs");
+    }
+
+    public static AppDataManager getInstance(Context context){
+        if(INSTANCE == null)
+            INSTANCE = new AppDataManager(context);
+
+        return INSTANCE;
     }
 
     @Override
