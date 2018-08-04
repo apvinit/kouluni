@@ -12,6 +12,7 @@ import xyz.redbooks.kouluni.data.model.db.Attendance;
 import xyz.redbooks.kouluni.data.model.db.Holiday;
 import xyz.redbooks.kouluni.data.model.db.Notice;
 import xyz.redbooks.kouluni.data.model.db.ParentMessage;
+import xyz.redbooks.kouluni.utils.AppConstants;
 
 /**
  * Created by h4rdw1r3 at 3:16 PM on 29/7/18
@@ -25,7 +26,7 @@ public class AppDataManager implements DataManager {
 
     private AppDataManager(Context context){
         appDbHelper = AppDbHelper.getInstance(context);
-        appPreferenceHelper = AppPreferencesHelper.getInstance(context,"AppPrefs");
+        appPreferenceHelper = AppPreferencesHelper.getInstance(context, AppConstants.PREF_NAME);
     }
 
     public static AppDataManager getInstance(Context context){
