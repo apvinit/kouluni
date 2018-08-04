@@ -1,5 +1,7 @@
 package xyz.redbooks.kouluni.data.local.db;
 
+import android.content.Context;
+
 import java.util.List;
 
 import xyz.redbooks.kouluni.data.model.db.Attendance;
@@ -12,12 +14,26 @@ import xyz.redbooks.kouluni.data.model.db.ParentMessage;
  */
 public class AppDbHelper implements DbHelper {
 
+    private static AppDbHelper INSTANCE;
+
     private NoticeDao noticeDao;
     private HolidayCalendarDao holidayCalendarDao;
     private ParentMessageDao parentMessageDao;
     private AttendanceDao attendanceDao;
 
+    private AppDbHelper(Context context){
+        noticeDao = AppDatabase.getInstance(context).noticeDao();
+        holidayCalendarDao = AppDatabase.getInstance(context).holidayCalendarDao();
+        parentMessageDao = AppDatabase.getInstance(context).parentMessageDao();
+        attendanceDao = AppDatabase.getInstance(context).attendanceDao();
+    }
 
+    public static AppDbHelper getInstance(Context context) {
+        if(INSTANCE == null)
+            INSTANCE = new AppDbHelper(context);
+
+        return INSTANCE;
+    }
 
     @Override
     public List<Notice> getAllNotices() {
