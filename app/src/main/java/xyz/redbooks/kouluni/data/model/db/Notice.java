@@ -1,13 +1,29 @@
 package xyz.redbooks.kouluni.data.model.db;
 
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
+
 /**
  * Created by h4rdw1r3 at 1:12 PM on 25/7/18
  */
 
+@Entity(tableName = "notice")
 public class Notice {
+
+    @PrimaryKey
+    @NonNull
+    @ColumnInfo(name = "id")
     private long id;
+
+    @ColumnInfo(name = "date")
     private String date;
+
+    @ColumnInfo(name = "subject")
     private String subject;
+
+    @ColumnInfo(name = "message")
     private String message;
 
     public long getId() {
