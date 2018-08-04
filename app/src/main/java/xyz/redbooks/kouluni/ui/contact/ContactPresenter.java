@@ -1,5 +1,7 @@
 package xyz.redbooks.kouluni.ui.contact;
 
+import xyz.redbooks.kouluni.data.AppDataManager;
+
 /**
  * Created by h4rdw1r3 at 4:12 PM on 30/7/18
  */
@@ -8,15 +10,17 @@ public class ContactPresenter implements ContactContract.Presenter {
     private static ContactPresenter INSTANCE;
 
     private ContactContract.View contactView;
+    private AppDataManager appDataManager;
 
-    private ContactPresenter(ContactContract.View contactView){
+    private ContactPresenter(ContactContract.View contactView, AppDataManager manager){
         this.contactView = contactView;
         this.contactView.setPresenter(this);
+        appDataManager = manager;
     }
 
-    public static void createInstance(ContactContract.View contactView) {
+    public static void createInstance(ContactContract.View contactView, AppDataManager manager) {
         if(INSTANCE == null){
-            INSTANCE = new ContactPresenter(contactView);
+            INSTANCE = new ContactPresenter(contactView, manager);
         }
 //        return INSTANCE;
     }

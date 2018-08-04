@@ -1,5 +1,6 @@
 package xyz.redbooks.kouluni.ui.user.profile;
 
+import xyz.redbooks.kouluni.data.AppDataManager;
 import xyz.redbooks.kouluni.data.model.others.Student;
 
 /*
@@ -8,18 +9,20 @@ import xyz.redbooks.kouluni.data.model.others.Student;
 public class ProfilePresenter implements ProfileContract.Presenter {
 
     private ProfileContract.View profileView;
+    private  AppDataManager appDataManager;
     private static ProfilePresenter INSTANCE;
 
     private Student student;
 
-    private ProfilePresenter(ProfileContract.View view) {
+    private ProfilePresenter(ProfileContract.View view, AppDataManager manager) {
         profileView = view;
         profileView.setPresenter(this);
+        appDataManager = manager;
     }
 
-    public static ProfilePresenter getInstance(ProfileContract.View view){
+    public static ProfilePresenter getInstance(ProfileContract.View view, AppDataManager manager){
         if(INSTANCE == null){
-            INSTANCE = new ProfilePresenter(view);
+            INSTANCE = new ProfilePresenter(view, manager);
         }
         return INSTANCE;
     }

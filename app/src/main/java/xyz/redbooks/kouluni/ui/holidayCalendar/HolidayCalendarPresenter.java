@@ -8,6 +8,8 @@ import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 
 import java.util.Date;
 
+import xyz.redbooks.kouluni.data.AppDataManager;
+
 /*
  * Created by h4rdw1r3 at 1:11 PM on 2/8/18
  */
@@ -15,15 +17,17 @@ public class HolidayCalendarPresenter implements HolidayCalendarContract.Present
 
     private static HolidayCalendarPresenter INSTANCE;
     private HolidayCalendarContract.View holidayCalendarView;
+    private AppDataManager appDataManager;
 
-    private HolidayCalendarPresenter(HolidayCalendarContract.View view){
+    private HolidayCalendarPresenter(HolidayCalendarContract.View view, AppDataManager manager){
         holidayCalendarView = view;
         holidayCalendarView.setPresenter(this);
+        appDataManager = manager;
     }
 
-    public static HolidayCalendarPresenter getInstance(HolidayCalendarContract.View view){
+    public static HolidayCalendarPresenter getInstance(HolidayCalendarContract.View view, AppDataManager manager){
         if(INSTANCE == null){
-            INSTANCE = new HolidayCalendarPresenter(view);
+            INSTANCE = new HolidayCalendarPresenter(view, manager);
         }
         return INSTANCE;
     }

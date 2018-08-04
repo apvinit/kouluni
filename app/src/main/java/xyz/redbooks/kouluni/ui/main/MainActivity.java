@@ -19,6 +19,7 @@ import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import xyz.redbooks.kouluni.R;
+import xyz.redbooks.kouluni.data.AppDataManager;
 import xyz.redbooks.kouluni.ui.about.AboutFragment;
 import xyz.redbooks.kouluni.ui.about.AboutPresenter;
 import xyz.redbooks.kouluni.ui.contact.ContactPresenter;
@@ -63,10 +64,15 @@ public class MainActivity extends AppCompatActivity {
 
     private HomePresenter homePresenter;
 
+    //***** Get DataManager *****//
+    public AppDataManager appDataManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        appDataManager = AppDataManager.getInstance(this.getApplicationContext());
 
         //*** Inject ButterKnife ***//
         ButterKnife.bind(this);
@@ -82,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(fragment == null){
             fragment = HomeFragment.getInstance();
-            homePresenter = HomePresenter.getInstance((HomeFragment) fragment);
+            homePresenter = HomePresenter.getInstance((HomeFragment) fragment, appDataManager);
             fm.beginTransaction().add(R.id.fragment_container, fragment).commit();
 
         }
@@ -212,7 +218,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setUpHomeMenuItem(){
         fragment = HomeFragment.getInstance();
-        HomePresenter.getInstance((HomeFragment) fragment);
+        HomePresenter.getInstance((HomeFragment) fragment,appDataManager);
         homePresenter.updateViewReference((HomeFragment) fragment);
         fm.beginTransaction().replace(R.id.fragment_container, fragment)
                 .commit();
@@ -222,7 +228,7 @@ public class MainActivity extends AppCompatActivity {
     private void setUpNoticeMenuItem(){
         NoticePresenter noticePresenter;
         fragment = new NoticeFragment();
-        noticePresenter = NoticePresenter.getInstance((NoticeFragment) fragment);
+        noticePresenter = NoticePresenter.getInstance((NoticeFragment) fragment, appDataManager);
         noticePresenter.updateViewReference((NoticeFragment) fragment);
         fm.beginTransaction().replace(R.id.fragment_container, fragment)
                 .commit();
@@ -234,7 +240,7 @@ public class MainActivity extends AppCompatActivity {
         HolidayCalendarPresenter holidayCalendarPresenter;
         fragment = new HolidayCalendarFragment();
         holidayCalendarPresenter = HolidayCalendarPresenter
-                .getInstance((HolidayCalendarFragment) fragment);
+                .getInstance((HolidayCalendarFragment) fragment, appDataManager);
         holidayCalendarPresenter.updateViewReference((HolidayCalendarFragment) fragment);
         fm.beginTransaction().replace(R.id.fragment_container, fragment)
                 .commit();
@@ -246,13 +252,13 @@ public class MainActivity extends AppCompatActivity {
         fm.beginTransaction().replace(R.id.fragment_container, fragment)
                 .addToBackStack(null).commit();
         toolbar.setTitle(R.string.contact_us);
-        ContactPresenter.createInstance((ContactUsFragment) fragment);
+        ContactPresenter.createInstance((ContactUsFragment) fragment, appDataManager);
     }
 
     private void setUpGalleryMenuItem(){
         GalleryPresenter galleryPresenter;
         fragment = GalleryFragment.getInstance();
-        galleryPresenter = GalleryPresenter.getInstance((GalleryFragment) fragment);
+        galleryPresenter = GalleryPresenter.getInstance((GalleryFragment) fragment, appDataManager);
         galleryPresenter.updateViewReference((GalleryFragment) fragment);
         fm.beginTransaction().replace(R.id.fragment_container, fragment)
                 .commit();
@@ -262,7 +268,7 @@ public class MainActivity extends AppCompatActivity {
     private void setUpAboutMenuItem(){
         AboutPresenter aboutPresenter;
         fragment = AboutFragment.getInstance();
-        aboutPresenter = AboutPresenter.getInstance((AboutFragment)fragment);
+        aboutPresenter = AboutPresenter.getInstance((AboutFragment)fragment, appDataManager);
         aboutPresenter.updateViewReference((AboutFragment) fragment);
         fm.beginTransaction().replace(R.id.fragment_container, fragment)
                 .commit();
@@ -272,7 +278,7 @@ public class MainActivity extends AppCompatActivity {
     private void setUpLoginOrLogoutMenuItem(){
         LoginPresenter loginPresenter;
         fragment = new LoginFragment();
-        loginPresenter = LoginPresenter.getInstance((LoginFragment) fragment);
+        loginPresenter = LoginPresenter.getInstance((LoginFragment) fragment, appDataManager);
         loginPresenter.updateViewReference((LoginFragment) fragment);
         fm.beginTransaction().replace(R.id.fragment_container, fragment)
                 .commit();
@@ -282,7 +288,7 @@ public class MainActivity extends AppCompatActivity {
     private void setUpAttendanceMenu(){
         AttendancePresenter attendancePresenter;
         fragment = new AttendanceFragment();
-        attendancePresenter = AttendancePresenter.getInstance((AttendanceFragment) fragment);
+        attendancePresenter = AttendancePresenter.getInstance((AttendanceFragment) fragment, appDataManager);
         attendancePresenter.updateViewReference((AttendanceFragment) fragment);
         fm.beginTransaction().replace(R.id.fragment_container, fragment)
                 .commit();
@@ -293,7 +299,7 @@ public class MainActivity extends AppCompatActivity {
         ParentMessagePresenter parentMessagePresenter;
         fragment = new ParentMessageFragment();
         parentMessagePresenter = ParentMessagePresenter
-                .getInstance((ParentMessageFragment) fragment );
+                .getInstance((ParentMessageFragment) fragment, appDataManager);
         parentMessagePresenter.updateViewReference(
                 (ParentMessageFragment) fragment);
         fm.beginTransaction().replace(R.id.fragment_container, fragment)
@@ -304,7 +310,7 @@ public class MainActivity extends AppCompatActivity {
     private void setUpProfileMenu(){
         ProfilePresenter profilePresenter;
         fragment = new ProfileFragment();
-        profilePresenter = ProfilePresenter.getInstance((ProfileFragment) fragment);
+        profilePresenter = ProfilePresenter.getInstance((ProfileFragment) fragment , appDataManager);
         profilePresenter.updateViewReference((ProfileFragment) fragment);
         fm.beginTransaction().replace(R.id.fragment_container, fragment)
                 .addToBackStack(null).commit();

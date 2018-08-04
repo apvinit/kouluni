@@ -2,22 +2,26 @@ package xyz.redbooks.kouluni.ui.gallery;
 
 import android.support.v7.widget.GridLayoutManager;
 
+import xyz.redbooks.kouluni.data.AppDataManager;
+
 /*
  * Created by h4rdw1r3 at 11:32 AM on 2/8/18
  */
 public class GalleryPresenter implements GalleryContract.Presenter {
 
     private GalleryContract.View galleryView;
+    private AppDataManager appDataManager;
     private static GalleryPresenter INSTANCE;
 
-    private GalleryPresenter(GalleryContract.View view){
+    private GalleryPresenter(GalleryContract.View view, AppDataManager manager){
         galleryView = view;
         galleryView.setPresenter(this);
+        appDataManager = manager;
     }
 
-    public static GalleryPresenter getInstance(GalleryContract.View view){
+    public static GalleryPresenter getInstance(GalleryContract.View view, AppDataManager manager){
         if(INSTANCE == null)
-            INSTANCE = new GalleryPresenter(view);
+            INSTANCE = new GalleryPresenter(view, manager);
         return INSTANCE;
     }
 
