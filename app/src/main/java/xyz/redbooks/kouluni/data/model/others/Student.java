@@ -1,4 +1,4 @@
-package xyz.redbooks.kouluni.data.model.db;
+package xyz.redbooks.kouluni.data.model.others;
 
 /**
  * Created by h4rdw1r3 at 1:06 PM on 25/7/18

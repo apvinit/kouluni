@@ -1,6 +1,6 @@
 package xyz.redbooks.kouluni.ui.user.profile;
 
-import xyz.redbooks.kouluni.data.model.db.Student;
+import xyz.redbooks.kouluni.data.model.others.Student;
 
 /*
  * Created by h4rdw1r3 at 7:27 PM on 2/8/18
