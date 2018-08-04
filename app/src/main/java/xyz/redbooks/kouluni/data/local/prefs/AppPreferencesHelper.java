@@ -3,6 +3,8 @@ package xyz.redbooks.kouluni.data.local.prefs;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import xyz.redbooks.kouluni.R;
+
 /**
  * Created by h4rdw1r3 at 3:14 PM on 29/7/18
  */
@@ -25,9 +27,11 @@ public class AppPreferencesHelper implements PreferencesHelper {
     private static final String ACCESS_TOKEN = "ACCESS_TOKEN";
 
     private final SharedPreferences prefs;
+    private final Context context;
     private static AppPreferencesHelper INSTANCE;
 
     private AppPreferencesHelper(Context context, String prefName){
+        this.context = context;
         prefs = context.getSharedPreferences(prefName, Context.MODE_PRIVATE);
     }
 
@@ -41,7 +45,7 @@ public class AppPreferencesHelper implements PreferencesHelper {
 
     @Override
     public String getSchoolName() {
-        return prefs.getString(SCHOOL_NAME, "School Name");
+        return prefs.getString(SCHOOL_NAME, context.getString(R.string.school_name));
     }
 
     @Override
@@ -51,7 +55,7 @@ public class AppPreferencesHelper implements PreferencesHelper {
 
     @Override
     public String getSchoolAddress() {
-        return prefs.getString(SCHOOL_ADDRESS, "School Address");
+        return prefs.getString(SCHOOL_ADDRESS, context.getString(R.string.school_address));
     }
 
     @Override
@@ -71,7 +75,7 @@ public class AppPreferencesHelper implements PreferencesHelper {
 
     @Override
     public String getStudentName() {
-        return prefs.getString(STUDENT_NAME, "Student Name");
+        return prefs.getString(STUDENT_NAME, context.getString(R.string.student_name));
     }
 
     @Override
@@ -81,7 +85,7 @@ public class AppPreferencesHelper implements PreferencesHelper {
 
     @Override
     public String getStudentFatherName() {
-        return prefs.getString(STUDENT_FATHER_NAME, "Father Name");
+        return prefs.getString(STUDENT_FATHER_NAME, context.getString(R.string.father_name));
     }
 
     @Override
@@ -91,7 +95,7 @@ public class AppPreferencesHelper implements PreferencesHelper {
 
     @Override
     public String getStudentMotherName() {
-        return prefs.getString(STUDENT_MOTHER_NAME, "Mother Name");
+        return prefs.getString(STUDENT_MOTHER_NAME, context.getString(R.string.mother_name));
     }
 
     @Override
@@ -101,7 +105,7 @@ public class AppPreferencesHelper implements PreferencesHelper {
 
     @Override
     public String getStudentClassStandard() {
-        return prefs.getString(STUDENT_CLASS_STANDARD, "12-D");
+        return prefs.getString(STUDENT_CLASS_STANDARD, context.getString(R.string.student_class));
     }
 
     @Override
@@ -111,7 +115,7 @@ public class AppPreferencesHelper implements PreferencesHelper {
 
     @Override
     public String getStudentDob() {
-        return prefs.getString(STUDENT_DOB, "00-00-0000");
+        return prefs.getString(STUDENT_DOB, context.getString(R.string.students_dob));
     }
 
     @Override
@@ -121,7 +125,7 @@ public class AppPreferencesHelper implements PreferencesHelper {
 
     @Override
     public String getStudentContactNo() {
-        return prefs.getString(STUDENT_CONTACT_NO, "9876543210");
+        return prefs.getString(STUDENT_CONTACT_NO, context.getString(R.string.student_contact_no));
     }
 
     @Override
@@ -131,7 +135,7 @@ public class AppPreferencesHelper implements PreferencesHelper {
 
     @Override
     public String getStudentAddress() {
-        return prefs.getString(STUDENT_ADDRESS, "Address");
+        return prefs.getString(STUDENT_ADDRESS, context.getString(R.string.student_address));
     }
 
     @Override
