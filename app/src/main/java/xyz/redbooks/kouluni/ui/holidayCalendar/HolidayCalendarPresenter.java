@@ -1,6 +1,6 @@
 package xyz.redbooks.kouluni.ui.holidayCalendar;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;

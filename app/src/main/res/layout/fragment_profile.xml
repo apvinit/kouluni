@@ -6,11 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".ui.user.profile.ProfileFragment">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/card_PersonalInfo"
             style="@style/CardView"
             android:layout_width="match_parent"
@@ -26,7 +26,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.378">
 
-            <android.support.constraint.ConstraintLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="8dp">
@@ -199,10 +199,10 @@
                     app:layout_constraintVertical_bias="0.0" />
 
 
-            </android.support.constraint.ConstraintLayout>
-        </android.support.v7.widget.CardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/card_reportCard"
             style="@style/CardView"
             android:layout_width="match_parent"
@@ -224,9 +224,9 @@
                 android:layout_height="wrap_content"
                 android:text="@string/report_card" />
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/card_syllabus"
             style="@style/CardView"
             android:layout_width="match_parent"
@@ -249,9 +249,9 @@
                 android:layout_height="wrap_content"
                 android:text="@string/syllabus" />
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/card_timeTable"
             style="@style/CardView"
             android:layout_width="match_parent"
@@ -274,8 +274,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/time_table" />
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

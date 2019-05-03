@@ -4,9 +4,9 @@ package xyz.redbooks.kouluni.data.model.db;
  * Created by h4rdw1r3 at 11:46 AM on 4/8/18
  */
 
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
-import android.support.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+import androidx.annotation.NonNull;
 
 @Entity(tableName = "attendance")
 public class Attendance {

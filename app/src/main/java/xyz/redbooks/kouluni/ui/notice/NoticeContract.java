@@ -1,7 +1,7 @@
 package xyz.redbooks.kouluni.ui.notice;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 
 import xyz.redbooks.kouluni.ui.base.BasePresenter;
 import xyz.redbooks.kouluni.ui.base.BaseView;

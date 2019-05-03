@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.user.parentMessage.ParentMessageFragment">
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/parent_message_list"
         android:paddingTop="4dp"
         android:paddingBottom="4dp"

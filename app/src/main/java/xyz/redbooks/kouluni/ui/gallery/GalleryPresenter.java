@@ -1,6 +1,6 @@
 package xyz.redbooks.kouluni.ui.gallery;
 
-import android.support.v7.widget.GridLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 
 import xyz.redbooks.kouluni.data.AppDataManager;
 

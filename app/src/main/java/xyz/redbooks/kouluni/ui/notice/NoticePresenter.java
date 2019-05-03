@@ -1,6 +1,6 @@
 package xyz.redbooks.kouluni.ui.notice;
 
-import android.support.v7.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import xyz.redbooks.kouluni.data.AppDataManager;
 
